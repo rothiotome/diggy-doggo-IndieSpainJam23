@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7mud6d2ljjvj"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/home_room.tscn" id="1_wwvee"]
+[ext_resource type="PackedScene" uid="uid://de0pmnn81f0e" path="res://SCENES/player.tscn" id="2_fowwk"]
+[ext_resource type="Script" path="res://SCRIPTS/camera.gd" id="3_4i2mk"]
+
+[node name="World" type="Node2D"]
+scale = Vector2(4, 4)
+
+[node name="HomeRoom" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_wwvee")]
+camera = NodePath("../Camera2D")
+
+[node name="HomeRoom2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_wwvee")]
+position = Vector2(-240, -80)
+camera = NodePath("../Camera2D")
+
+[node name="door" parent="HomeRoom2" index="3"]
+current_door_state = 2
+
+[node name="door2" parent="HomeRoom2" index="4"]
+current_door_state = 0
+
+[node name="HomeRoom3" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_wwvee")]
+position = Vector2(-240, -240)
+camera = NodePath("../Camera2D")
+
+[node name="door2" parent="HomeRoom3" index="4"]
+current_door_state = 0
+
+[node name="door4" parent="HomeRoom3" index="6"]
+current_door_state = 2
+
+[node name="HomeRoom4" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_wwvee")]
+position = Vector2(-80, -240)
+camera = NodePath("../Camera2D")
+
+[node name="door4" parent="HomeRoom4" index="6"]
+current_door_state = 0
+
+[node name="Player" parent="." instance=ExtResource("2_fowwk")]
+y_sort_enabled = true
+collision_layer = 2
+velocity_multiplier = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_4i2mk")
+tween_duration = 0.5
+
+[editable path="HomeRoom"]
+[editable path="HomeRoom2"]
+[editable path="HomeRoom3"]
+[editable path="HomeRoom4"]

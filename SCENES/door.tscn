@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl6q3ostqr6q"]
+
+[ext_resource type="Script" path="res://SCRIPTS/door.gd" id="1_3vd10"]
+[ext_resource type="Texture2D" uid="uid://dct6y20o38d7c" path="res://ATLAS/door-closed.tres" id="2_a3j8f"]
+[ext_resource type="Texture2D" uid="uid://caoetc85hegpo" path="res://ATLAS/door-opened.tres" id="3_hb03t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o11u"]
+size = Vector2(32, 8)
+
+[node name="door" type="Node2D"]
+modulate = Color(0.00784314, 0.494118, 0.772549, 1)
+script = ExtResource("1_3vd10")
+current_door_state = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_7o11u")
+
+[node name="door-closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_a3j8f")
+
+[node name="door-opened" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_hb03t")

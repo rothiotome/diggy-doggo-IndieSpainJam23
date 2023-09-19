@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://de0pmnn81f0e"]
+
+[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_5jcwf"]
+[ext_resource type="Texture2D" uid="uid://b0qgxxjs84tr5" path="res://SPRITES/HEROS/spritesheets/HEROS1bit_Dog Idle D.png" id="1_g0lqe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5whl"]
+radius = 4.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_5jcwf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_g0lqe")
+hframes = 8
+
+[node name="Animation" type="AnimationPlayer" parent="Sprite"]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_n5whl")
