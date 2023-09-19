@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name door
+
 @onready var opened_sprite:Sprite2D = $"door-opened"
 @onready var closed_sprite:Sprite2D = $"door-closed"
 @onready var static_body:CollisionShape2D = $StaticBody2D/CollisionShape2D
@@ -12,7 +14,8 @@ func _ready():
 	set_door_state(current_door_state)
 
 func set_door_state(new_state:door_state):
-	match new_state:
+	current_door_state = new_state
+	match current_door_state:
 		door_state.CLOSED:
 			opened_sprite.visible = false
 			closed_sprite.visible = true

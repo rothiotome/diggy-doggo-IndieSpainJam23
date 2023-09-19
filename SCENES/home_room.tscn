@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkix8aaefcba1"]
+[gd_scene load_steps=13 format=3 uid="uid://bkix8aaefcba1"]
 
 [ext_resource type="Texture2D" uid="uid://dlwbyxv5a0lhc" path="res://TILESET/monochrome_tilemap_transparent_packed.png" id="1_5ib8e"]
 [ext_resource type="Script" path="res://SCRIPTS/room.gd" id="1_ihd18"]
 [ext_resource type="PackedScene" uid="uid://bl6q3ostqr6q" path="res://SCENES/door.tscn" id="2_33fq5"]
+[ext_resource type="Script" path="res://SCRIPTS/OpenDoorButton.gd" id="4_5u3ih"]
+[ext_resource type="Texture2D" uid="uid://dp1yq0jjyxhqi" path="res://ATLAS/button-pushed.tres" id="4_e6e3n"]
+[ext_resource type="Texture2D" uid="uid://b6m8kktl13s7m" path="res://ATLAS/button-released.tres" id="5_j5ur5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qadqn"]
 size = Vector2(144, 144)
@@ -759,9 +762,16 @@ texture = ExtResource("1_5ib8e")
 sources/0 = SubResource("TileSetAtlasSource_5lkwh")
 sources/1 = SubResource("TileSetAtlasSource_3bsxq")
 
-[node name="HomeRoom" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lfbg"]
+size = Vector2(16, 16)
+
+[node name="HomeRoom" type="Node2D" node_paths=PackedStringArray("up_door", "down_door", "left_door", "right_door")]
 position = Vector2(-80, -80)
 script = ExtResource("1_ihd18")
+up_door = NodePath("up_door")
+down_door = NodePath("down_door")
+left_door = NodePath("left_door")
+right_door = NodePath("right_door")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 256
@@ -793,23 +803,36 @@ polygon = PackedVector2Array(16, 48, 72, 48, 72, 64, 0, 64, 0, -8, 16, -8)
 position = Vector2(96, 0)
 polygon = PackedVector2Array(64, 0, 64, 72, 48, 72, 48, 16, -8, 16, -8, 0)
 
-[node name="door" parent="." instance=ExtResource("2_33fq5")]
+[node name="up_door" parent="." instance=ExtResource("2_33fq5")]
 position = Vector2(80, 8)
-current_door_state = 0
 
-[node name="door2" parent="." instance=ExtResource("2_33fq5")]
+[node name="right_door" parent="." instance=ExtResource("2_33fq5")]
 position = Vector2(152, 80)
 rotation = 1.5708
-current_door_state = 1
 
-[node name="door3" parent="." instance=ExtResource("2_33fq5")]
+[node name="left_door" parent="." instance=ExtResource("2_33fq5")]
 position = Vector2(8, 80)
 rotation = -1.5708
-current_door_state = 0
 
-[node name="door4" parent="." instance=ExtResource("2_33fq5")]
+[node name="down_door" parent="." instance=ExtResource("2_33fq5")]
 position = Vector2(80, 152)
 rotation = 3.14159
-current_door_state = 1
+
+[node name="OpenDoorButton" type="Area2D" parent="."]
+position = Vector2(80, 80)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_5u3ih")
+
+[node name="released" type="Sprite2D" parent="OpenDoorButton"]
+texture = ExtResource("4_e6e3n")
+
+[node name="pushed" type="Sprite2D" parent="OpenDoorButton"]
+visible = false
+texture = ExtResource("5_j5ur5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenDoorButton"]
+shape = SubResource("RectangleShape2D_8lfbg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="OpenDoorButton" to="OpenDoorButton" method="_on_body_entered"]

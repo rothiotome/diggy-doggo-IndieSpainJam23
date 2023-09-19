@@ -5,12 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://caoetc85hegpo" path="res://ATLAS/door-opened.tres" id="3_hb03t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o11u"]
-size = Vector2(32, 8)
+size = Vector2(32, 16)
 
 [node name="door" type="Node2D"]
 modulate = Color(0.00784314, 0.494118, 0.772549, 1)
 script = ExtResource("1_3vd10")
-current_door_state = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

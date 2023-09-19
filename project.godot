@@ -15,6 +15,10 @@ run/main_scene="res://SCENES/world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+dungeon_generation="*res://SCRIPTS/dungeon_generation.gd"
+
 [display]
 
 window/size/viewport_width=640
@@ -59,7 +63,7 @@ ui_down={
 [layer_names]
 
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Door"
+2d_physics/layer_3="Pushable"
 2d_physics/layer_4="Pickable"
 2d_physics/layer_5="Obstacle"
 
