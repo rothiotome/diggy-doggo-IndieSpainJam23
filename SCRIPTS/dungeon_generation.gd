@@ -5,7 +5,7 @@ var rooms:Array = []
 var generation_chance:int = 20
 
 func generate(room_seed):
-	preload_all_scenes()
+	if rooms.is_empty(): preload_all_scenes()
 	seed(room_seed)
 
 	var dungeon = generate_dungeon(len(rooms))

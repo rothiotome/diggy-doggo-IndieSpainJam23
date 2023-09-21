@@ -28,8 +28,8 @@ func get_input():
 	velocity = input_direction * velocity_multiplier
 
 func animate():
-	walk()
-	#roll()
+	#walk()
+	roll()
 	
 func walk():
 	if velocity != Vector2.ZERO: 

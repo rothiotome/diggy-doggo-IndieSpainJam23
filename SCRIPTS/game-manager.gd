@@ -20,7 +20,7 @@ func load_map():
 	for i in dungeon.keys():
 		map_node.add_child(dungeon[i])
 		dungeon[i].position = i * room_size
-		dungeon[i].setup_door()
+		dungeon[i].setup()
 		var c_rooms = dungeon.get(i).connected_rooms
 
 func start_day():

@@ -760,13 +760,9 @@ texture = ExtResource("2_3amnu")
 sources/0 = SubResource("TileSetAtlasSource_5lkwh")
 sources/1 = SubResource("TileSetAtlasSource_3bsxq")
 
-[node name="HomeRoom" type="Node2D" node_paths=PackedStringArray("up_door", "down_door", "left_door", "right_door")]
+[node name="HomeRoom" type="Node2D"]
 position = Vector2(-80, -80)
 script = ExtResource("1_aq22n")
-up_door = NodePath("up_door")
-down_door = NodePath("down_door")
-left_door = NodePath("left_door")
-right_door = NodePath("right_door")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 256
