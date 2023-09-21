@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://wgu6trad80h1"]
+[gd_scene load_steps=4 format=3 uid="uid://wgu6trad80h1"]
 
 [ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/LEVELS/home_room.tscn" id="1_x4t4x"]
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/saw.tscn" id="2_5uer0"]
+[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://SCENES/pickable_food.tscn" id="3_qpfr0"]
 
 [node name="HomeRoom" instance=ExtResource("1_x4t4x")]
 
-[node name="OpenDoorButton" parent="." index="7"]
-position = Vector2(128, 40)
+[node name="Saw" parent="." index="8" instance=ExtResource("2_5uer0")]
+position = Vector2(48, 40)
+
+[node name="Saw2" parent="." index="9" instance=ExtResource("2_5uer0")]
+position = Vector2(112, 120)
+rotation = -3.14159
+
+[node name="Saw3" parent="." index="10" instance=ExtResource("2_5uer0")]
+position = Vector2(120, 48)
+rotation = 1.5708
+
+[node name="Saw4" parent="." index="11" instance=ExtResource("2_5uer0")]
+position = Vector2(40, 112)
+rotation = -1.5708
+
+[node name="pickable_food" parent="." index="12" instance=ExtResource("3_qpfr0")]
+position = Vector2(80, 112)

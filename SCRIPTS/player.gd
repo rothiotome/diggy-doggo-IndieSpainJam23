@@ -10,7 +10,13 @@ class_name player
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite
 
+signal on_pick_object 
+signal on_hurt
+
 var is_invulnerable:bool = false
+
+func _ready():
+	Engine.time_scale = 1
 
 func _physics_process(delta):
 	get_input()
@@ -51,11 +57,6 @@ func roll():
 			"roll_U": anim.play("idle_U")
 			"roll_D": anim.play("idle_D")
 	
-func _on_hurt_box_area_entered(area):
-	if is_invulnerable: return
-	frameFreeze(0.2)
-	start_invulnerability()
-	print(area.parent.damage_amount)
 	
 func start_invulnerability():
 	invulnerability_timer.start(1)
@@ -69,3 +70,13 @@ func frameFreeze(duration):
 	Engine.time_scale = 0
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1
+
+func _on_pickable_box_area_entered(area):
+	area.pick()
+	on_pick_object.emit(area.type)
+
+func _on_hurt_box_area_entered(area):
+	if is_invulnerable: return
+	on_hurt.emit(area.parent.damage_amount)
+	frameFreeze(0.2)
+	start_invulnerability()

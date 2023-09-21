@@ -19,6 +19,7 @@ radius = 6.08276
 
 [node name="Saw" type="Node2D"]
 script = ExtResource("1_lktmn")
+movement_speed = 0.8
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_dl0mw")

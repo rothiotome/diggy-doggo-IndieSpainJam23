@@ -104,8 +104,8 @@ theme_override_icons/grabber = ExtResource("7_w7tr0")
 theme_override_styles/slider = SubResource("StyleBoxLine_aqw0e")
 scrollable = false
 
-[node name="shovel" type="TextureRect" parent="CanvasLayer/ColorRect"]
-modulate = Color(1, 1, 1, 0.2)
+[node name="food" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 166.0
 offset_top = 72.0
@@ -114,7 +114,7 @@ offset_bottom = 112.0
 texture = ExtResource("7_rd8xl")
 
 [node name="wood" type="TextureRect" parent="CanvasLayer/ColorRect"]
-modulate = Color(1, 1, 1, 0.2)
+modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 102.0
 offset_top = 72.0
@@ -122,8 +122,8 @@ offset_right = 142.0
 offset_bottom = 112.0
 texture = ExtResource("9_3g3jg")
 
-[node name="food" type="TextureRect" parent="CanvasLayer/ColorRect"]
-modulate = Color(1, 1, 1, 0.2)
+[node name="shovel" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 38.0
 offset_top = 72.0
@@ -148,5 +148,3 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="DaylightTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="DaylightTimer" to="." method="_on_daylight_timer_timeout"]

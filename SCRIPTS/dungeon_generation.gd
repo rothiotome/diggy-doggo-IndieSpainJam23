@@ -79,6 +79,8 @@ func preload_all_scenes():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			if (file_name.ends_with(".remap")):
+				file_name = file_name.replace(".remap","")
 			rooms.append(load(directory_path+file_name))
 			print("Found file: " + file_name)
 			file_name = dir.get_next()
