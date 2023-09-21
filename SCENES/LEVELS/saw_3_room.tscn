@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo8u14deovye7"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/LEVELS/home_room.tscn" id="1_83732"]
+
+[node name="HomeRoom" instance=ExtResource("1_83732")]
+
+[node name="OpenDoorButton" parent="." index="7"]
+position = Vector2(40, 32)

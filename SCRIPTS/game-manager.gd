@@ -16,4 +16,3 @@ func load_map():
 		dungeon[i].position = i * room_size
 		dungeon[i].setup_door()
 		var c_rooms = dungeon.get(i).connected_rooms
-		

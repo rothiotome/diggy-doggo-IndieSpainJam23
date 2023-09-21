@@ -22,7 +22,7 @@ dungeon_generation="*res://SCRIPTS/dungeon_generation.gd"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=640
+window/size/viewport_height=800
 window/stretch/mode="viewport"
 
 [input]
@@ -66,6 +66,7 @@ ui_down={
 2d_physics/layer_3="Pushable"
 2d_physics/layer_4="Pickable"
 2d_physics/layer_5="Obstacle"
+2d_physics/layer_6="Death"
 
 [physics]
 
