@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var time_label:Label = $ColorRect/Time
 @onready var timer:Timer = $"../DaylightTimer"
 
+@onready var message_panel = $message_panel
+
 var start_day_hour:int = 6
 var end_day_hour:int = 20
 
@@ -27,8 +29,22 @@ func remove_items():
 	food_sprite.modulate.a = 0.25
 	wood_sprite.modulate.a = 0.25
 	shovel_sprite.modulate.a = 0.25
-	
 
+func remove_item(item:Pickable.resource_type):
+		match item:
+			Pickable.resource_type.food:
+				food_sprite.modulate.a = 0.25
+			Pickable.resource_type.wood:
+				wood_sprite.modulate.a = 0.25
+			Pickable.resource_type.shovel:
+				shovel_sprite.modulate.a = 0.25
+	
+func localize_and_show_message(message_key:String):
+	message_panel.show_message(tr(message_key))
+	
+func show_message(message_key:String):
+	message_panel.show_message(message_key)
+	
 func update_time_and_progress():
 	var progress = 100 -(timer.time_left / Globals.current_daylight_duration) * 100
 
@@ -48,8 +64,7 @@ func update_time_and_progress():
 
 	progress_bar.value = progress
 
-	
-func _process(delta):
+func _process(_delta):
 	if timer.is_stopped():
 		return
 	update_time_and_progress()

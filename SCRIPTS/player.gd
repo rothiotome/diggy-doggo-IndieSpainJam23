@@ -22,7 +22,7 @@ var is_invulnerable:bool = false
 func _ready():
 	Engine.time_scale = 1
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	animate()
@@ -82,7 +82,7 @@ func try_to_action():
 		action_zone.zone_type.dig:
 			if Globals.has_item(Pickable.resource_type.shovel):
 				get_parent().dig()
-
+				
 func _on_timer_timeout():
 	is_invulnerable = false
 	
@@ -100,7 +100,6 @@ func _on_interaction_box_area_entered(area:action_zone):
 	match area.type:
 		action_zone.zone_type.sleep:
 			ui.show_sleep_stuff()
-			
 		action_zone.zone_type.dig:
 			ui.show_dig_stuff()
 	area.show_action()

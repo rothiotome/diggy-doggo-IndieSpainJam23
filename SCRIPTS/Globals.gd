@@ -8,6 +8,8 @@ var consumed_room:Array = []
 
 var inventory:Array[Pickable.resource_type] = []
 
+var current_language:String = "es"
+
 func has_item(type) -> bool:
 	return inventory.has(type)
 

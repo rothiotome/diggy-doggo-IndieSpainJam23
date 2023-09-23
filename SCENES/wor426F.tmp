@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7mud6d2ljjvj"]
+[gd_scene load_steps=15 format=3 uid="uid://c7mud6d2ljjvj"]
 
 [ext_resource type="Script" path="res://SCRIPTS/game-manager.gd" id="1_4nufx"]
 [ext_resource type="PackedScene" uid="uid://de0pmnn81f0e" path="res://SCENES/player.tscn" id="2_fowwk"]
@@ -12,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="8_i5qe8"]
 [ext_resource type="Texture2D" uid="uid://btfm6nyxsa1x6" path="res://TILESET/up_arrow.tres" id="8_opk5w"]
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="9_3g3jg"]
-[ext_resource type="Script" path="res://SCENES/message_panel.gd" id="12_y1iib"]
-[ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://TILESET/action.tres" id="13_1y4k6"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_aqw0e"]
 color = Color(0, 0, 0, 0)
@@ -63,11 +61,10 @@ offset_left = 32.0
 offset_top = 8.0
 offset_right = 212.0
 offset_bottom = 61.0
-localize_numeral_system = false
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_7g5vk")
 theme_override_font_sizes/font_size = 50
-text = "RESOURCES_KEY"
+text = "Resources"
 
 [node name="Time" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
@@ -140,72 +137,6 @@ offset_left = 464.0
 offset_top = 113.0
 offset_right = 593.0
 offset_bottom = 116.0
-
-[node name="message_panel" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("12_y1iib")
-metadata/_edit_use_anchors_ = true
-
-[node name="message_border" type="ColorRect" parent="CanvasLayer/message_panel"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="message_canvas" type="ColorRect" parent="CanvasLayer/message_panel/message_border"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = 8.0
-offset_right = -15.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-color = Color(0, 0, 0, 1)
-
-[node name="text" type="Label" parent="CanvasLayer/message_panel/message_border/message_canvas"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 6.0
-offset_right = 599.0
-offset_bottom = 165.0
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_7g5vk")
-theme_override_font_sizes/font_size = 50
-text = "MESSAGE"
-autowrap_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/message_panel/message_border/message_canvas"]
-anchors_preset = 0
-offset_left = 575.0
-offset_top = 124.0
-offset_right = 615.0
-offset_bottom = 164.0
-
-[node name="action_image" type="TextureRect" parent="CanvasLayer/message_panel/message_border/message_canvas/Control"]
-visible = false
-modulate = Color(0.768627, 0.760784, 0.0862745, 1)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("13_1y4k6")
 
 [node name="Control" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y0w7u")

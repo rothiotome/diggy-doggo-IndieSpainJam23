@@ -39,7 +39,6 @@ func generate_dungeon(size:int) -> Dictionary:
 		for i in dungeon.keys():
 			if(dungeon.keys().size() == size):
 				return dungeon
-				break
 			if(randi_range(0,100) < generation_chance):
 				var direction = randi_range(0,4)
 				if(direction < 1):
