@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_83732"]
 [ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/saw.tscn" id="2_6q5nx"]
-[ext_resource type="PackedScene" uid="uid://c77jag8ytsik0" path="res://SCENES/pickable_wood.tscn" id="3_1dfnj"]
+[ext_resource type="PackedScene" uid="uid://c77jag8ytsik0" path="res://SCENES/PICKABLES/pickable_wood.tscn" id="3_1dfnj"]
 
 [sub_resource type="Curve2D" id="Curve2D_2f3ux"]
 resource_local_to_scene = true
@@ -36,7 +36,7 @@ position = Vector2(32, 40)
 curve = SubResource("Curve2D_tv0ni")
 
 [node name="pickable_wood" parent="." index="10" instance=ExtResource("3_1dfnj")]
-position = Vector2(80, 80)
+position = Vector2(80, 104)
 
 [editable path="Saw"]
 [editable path="Saw2"]

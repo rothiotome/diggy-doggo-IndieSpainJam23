@@ -87,8 +87,11 @@ func _on_timer_timeout():
 	is_invulnerable = false
 	
 func _on_pickable_box_area_entered(area):
-	area.pick()
-	on_pick_object.emit(area.type)
+	if !Globals.has_item(area.type):
+		area.pick()
+		on_pick_object.emit(area.type, true)
+	else:
+		on_pick_object.emit(area.type, false)
 
 func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return

@@ -23,7 +23,7 @@ func hide_message():
 func show_message(message:String):
 	message_border.show()
 	text.text = message
-	await get_tree().create_timer(1).timeout.connect(can_close_message)
+	get_tree().create_timer(1).timeout.connect(can_close_message)
 	
 func can_close_message():
 	message_is_visible = true

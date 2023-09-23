@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_5jcwf"]
 [ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://SPRITES/HEROS/spritesheets/doggoSpriteSheet.png" id="2_2gpcj"]
+[ext_resource type="Script" path="res://SCRIPTS/player_UI.gd" id="3_fo4ap"]
 [ext_resource type="Texture2D" uid="uid://xq8ajmmmcjcv" path="res://TILESET/thought.tres" id="3_fwhsp"]
-[ext_resource type="Script" path="res://SCENES/player_UI.gd" id="3_l7ynd"]
 [ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="4_x7g4e"]
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="5_vj8aq"]
 [ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="6_5lx7v"]
@@ -419,7 +419,7 @@ libraries = {
 }
 
 [node name="UI" type="Node2D" parent="."]
-script = ExtResource("3_l7ynd")
+script = ExtResource("3_fo4ap")
 
 [node name="sleep_thoughts" type="Node2D" parent="UI"]
 

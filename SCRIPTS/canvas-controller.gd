@@ -1,8 +1,10 @@
 extends CanvasLayer
 
-@onready var food_sprite:TextureRect = $ColorRect/food
-@onready var wood_sprite:TextureRect = $ColorRect/wood
-@onready var shovel_sprite:TextureRect = $ColorRect/shovel
+class_name canvas_controller
+
+@onready var food_sprite:TextureRect = $ColorRect/food_parent/food
+@onready var wood_sprite:TextureRect = $ColorRect/wood_parent/wood
+@onready var shovel_sprite:TextureRect = $ColorRect/shovel_parent/shovel
 
 @onready var progress_bar:Slider = $ColorRect/ProgressBar
 @onready var time_label:Label = $ColorRect/Time
@@ -24,7 +26,7 @@ func pick_item(item:Pickable.resource_type):
 			wood_sprite.modulate.a = 1
 		Pickable.resource_type.shovel:
 			shovel_sprite.modulate.a = 1
-			
+
 func remove_items():
 	food_sprite.modulate.a = 0.25
 	wood_sprite.modulate.a = 0.25
@@ -38,13 +40,14 @@ func remove_item(item:Pickable.resource_type):
 				wood_sprite.modulate.a = 0.25
 			Pickable.resource_type.shovel:
 				shovel_sprite.modulate.a = 0.25
-	
+
 func localize_and_show_message(message_key:String):
 	message_panel.show_message(tr(message_key))
 	
+
 func show_message(message_key:String):
 	message_panel.show_message(message_key)
-	
+
 func update_time_and_progress():
 	var progress = 100 -(timer.time_left / Globals.current_daylight_duration) * 100
 
@@ -61,10 +64,23 @@ func update_time_and_progress():
 			hour_to_display = current_hour - 12
 
 	time_label.text = "%02d:%02d %s" % [hour_to_display, current_minute, am_pm]
-
 	progress_bar.value = progress
+	
+func flash_item(item:Pickable.resource_type):
+	match item:
+			Pickable.resource_type.food:
+				flash_sprite(food_sprite)
+			Pickable.resource_type.wood:
+				flash_sprite(wood_sprite)
+			Pickable.resource_type.shovel:
+				flash_sprite(shovel_sprite)
+
+func flash_sprite(texture:TextureRect):
+	var tween = get_tree().create_tween()
+	tween.tween_property(texture, "position", Vector2(randi_range(-2, 2), randi_range(-2, 2)), 0.5)
 
 func _process(_delta):
 	if timer.is_stopped():
 		return
 	update_time_and_progress()
+

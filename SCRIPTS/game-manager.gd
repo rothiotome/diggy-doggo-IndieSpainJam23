@@ -5,8 +5,7 @@ var dungeon = {}
 @onready var map_node:Node2D = $MapNode
 @onready var daylight_timer:Timer = $DaylightTimer
 @onready var player:player = $Player
-@onready var canvas_layer = $CanvasLayer
-
+@onready var canvas_layer:canvas_controller = $CanvasLayer
 
 const room_size:int = 160
 
@@ -28,14 +27,16 @@ func start_day():
 	daylight_timer.stop()
 	daylight_timer.wait_time = Globals.daylight_duration
 	daylight_timer.start()
-	show_message("SHINNY_DAY")
+	if Globals.current_day > 0: show_message("SHINNY_DAY")
+	Globals.current_day += 1
 	
 func player_hurt(damage:int):
 	if(daylight_timer.time_left - damage <= 0): game_over()
 	else: daylight_timer.start(daylight_timer.time_left - damage)
 
-func player_picked_object(type:Pickable.resource_type):
-	canvas_layer.pick_item(type)
+func player_picked_object(type:Pickable.resource_type, succeed):
+	if succeed: canvas_layer.pick_item(type)
+	else: canvas_layer.flash_item(type)
 	
 func enter_home():
 	daylight_timer.paused = true

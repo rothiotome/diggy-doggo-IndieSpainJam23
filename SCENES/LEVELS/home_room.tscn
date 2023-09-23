@@ -84,8 +84,23 @@ metadata/_edit_lock_ = true
 [node name="Background" parent="." index="1"]
 modulate = Color(0.00784314, 0.494118, 0.772549, 1)
 
+[node name="up_door" parent="." index="3"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="right_door" parent="." index="4"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="left_door" parent="." index="5"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="down_door" parent="." index="6"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
 [node name="OpenDoorButton" parent="." index="7"]
 position = Vector2(128, 32)
+
+[node name="released" parent="OpenDoorButton" index="0"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 
 [node name="cross" type="Sprite2D" parent="." index="8"]
 position = Vector2(80, 80)
@@ -218,38 +233,39 @@ position = Vector2(80, 80)
 shape = SubResource("RectangleShape2D_qadqn")
 metadata/_edit_lock_ = true
 
-[node name="ActionZone" parent="." index="13" instance=ExtResource("17_s1pd4")]
+[node name="Sleep_Zone" parent="." index="13" instance=ExtResource("17_s1pd4")]
 position = Vector2(24, 24)
 
-[node name="CollisionShape2D" parent="ActionZone" index="0"]
+[node name="CollisionShape2D" parent="Sleep_Zone" index="0"]
 position = Vector2(12, 8)
 shape = SubResource("RectangleShape2D_yd7bs")
 debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
-[node name="Node2D" parent="ActionZone" index="1"]
+[node name="Node2D" parent="Sleep_Zone" index="1"]
 position = Vector2(16, -16)
 
-[node name="Action" parent="ActionZone/Node2D" index="0"]
+[node name="Action" parent="Sleep_Zone/Node2D" index="0"]
 modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 
-[node name="ActionZone2" parent="." index="14" instance=ExtResource("17_s1pd4")]
+[node name="DigZone" parent="." index="14" instance=ExtResource("17_s1pd4")]
 position = Vector2(92, 24)
 type = 1
 
-[node name="CollisionShape2D" parent="ActionZone2" index="0"]
+[node name="CollisionShape2D" parent="DigZone" index="0"]
 position = Vector2(-12, 56)
 shape = SubResource("RectangleShape2D_e7krj")
 debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
-[node name="Node2D" parent="ActionZone2" index="1"]
+[node name="Node2D" parent="DigZone" index="1"]
 position = Vector2(-12, 40)
 
-[node name="Action" parent="ActionZone2/Node2D" index="0"]
+[node name="Action" parent="DigZone/Node2D" index="0"]
 modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 
 [connection signal="body_entered" from="Safe-Space" to="." method="_on_safe_space_body_entered"]
 [connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="body_exited" from="Safe-Space" to="." method="_on_safe_space_body_exited"]
 
-[editable path="ActionZone"]
-[editable path="ActionZone2"]
+[editable path="OpenDoorButton"]
+[editable path="Sleep_Zone"]
+[editable path="DigZone"]

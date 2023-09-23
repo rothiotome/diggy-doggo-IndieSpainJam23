@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="8_i5qe8"]
 [ext_resource type="Texture2D" uid="uid://btfm6nyxsa1x6" path="res://TILESET/up_arrow.tres" id="8_opk5w"]
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="9_3g3jg"]
-[ext_resource type="Script" path="res://SCENES/message_panel.gd" id="12_y1iib"]
+[ext_resource type="Script" path="res://SCRIPTS/message_panel.gd" id="12_y1iib"]
 [ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://TILESET/action.tres" id="13_1y4k6"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_aqw0e"]
@@ -107,31 +107,46 @@ theme_override_icons/grabber = ExtResource("8_opk5w")
 theme_override_styles/slider = SubResource("StyleBoxLine_aqw0e")
 scrollable = false
 
-[node name="shovel" type="TextureRect" parent="CanvasLayer/ColorRect"]
-modulate = Color(1, 1, 1, 0.2)
-layout_mode = 0
+[node name="shovel_parent" type="Control" parent="CanvasLayer/ColorRect"]
+anchors_preset = 0
 offset_left = 166.0
 offset_top = 72.0
 offset_right = 206.0
 offset_bottom = 112.0
-texture = ExtResource("7_rd8xl")
 
-[node name="wood" type="TextureRect" parent="CanvasLayer/ColorRect"]
+[node name="shovel" type="TextureRect" parent="CanvasLayer/ColorRect/shovel_parent"]
 modulate = Color(1, 1, 1, 0.2)
 layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_rd8xl")
+
+[node name="wood_parent" type="Control" parent="CanvasLayer/ColorRect"]
+anchors_preset = 0
 offset_left = 102.0
 offset_top = 72.0
 offset_right = 142.0
 offset_bottom = 112.0
-texture = ExtResource("9_3g3jg")
 
-[node name="food" type="TextureRect" parent="CanvasLayer/ColorRect"]
+[node name="wood" type="TextureRect" parent="CanvasLayer/ColorRect/wood_parent"]
 modulate = Color(1, 1, 1, 0.2)
 layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_3g3jg")
+
+[node name="food_parent" type="Control" parent="CanvasLayer/ColorRect"]
+anchors_preset = 0
 offset_left = 38.0
 offset_top = 72.0
 offset_right = 78.0
 offset_bottom = 112.0
+
+[node name="food" type="TextureRect" parent="CanvasLayer/ColorRect/food_parent"]
+modulate = Color(1, 1, 1, 0.2)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("8_i5qe8")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/ColorRect"]
@@ -153,6 +168,7 @@ script = ExtResource("12_y1iib")
 metadata/_edit_use_anchors_ = true
 
 [node name="message_border" type="ColorRect" parent="CanvasLayer/message_panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
