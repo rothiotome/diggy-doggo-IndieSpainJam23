@@ -10,6 +10,10 @@ class_name player
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite
 
+@onready var ui:player_ui = $UI
+
+var current_zone:action_zone = null
+
 signal on_pick_object 
 signal on_hurt
 
@@ -26,10 +30,12 @@ func _physics_process(delta):
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * velocity_multiplier
+	
+	if Input.is_action_just_pressed("ui_accept"): try_to_action()
 
 func animate():
-	#walk()
-	roll()
+	walk()
+	#roll()
 	
 func walk():
 	if velocity != Vector2.ZERO: 
@@ -57,20 +63,29 @@ func roll():
 			"roll_U": anim.play("idle_U")
 			"roll_D": anim.play("idle_D")
 	
-	
 func start_invulnerability():
 	invulnerability_timer.start(1)
 	effects_anim.play("blink")
 	is_invulnerable = true
 
-func _on_timer_timeout():
-	is_invulnerable = false
-
-func frameFreeze(duration):
+func frame_freeze(duration):
 	Engine.time_scale = 0
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1
+	
+func try_to_action():
+	if current_zone == null: return
+	match current_zone.type:
+		action_zone.zone_type.sleep:
+			if Globals.has_item(Pickable.resource_type.wood) && Globals.has_item(Pickable.resource_type.food):
+				get_parent().sleep()
+		action_zone.zone_type.dig:
+			if Globals.has_item(Pickable.resource_type.shovel):
+				get_parent().dig()
 
+func _on_timer_timeout():
+	is_invulnerable = false
+	
 func _on_pickable_box_area_entered(area):
 	area.pick()
 	on_pick_object.emit(area.type)
@@ -78,5 +93,26 @@ func _on_pickable_box_area_entered(area):
 func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return
 	on_hurt.emit(area.parent.damage_amount)
-	frameFreeze(0.2)
+	frame_freeze(0.2)
 	start_invulnerability()
+
+func _on_interaction_box_area_entered(area:action_zone):
+	match area.type:
+		action_zone.zone_type.sleep:
+			ui.show_sleep_stuff()
+			
+		action_zone.zone_type.dig:
+			ui.show_dig_stuff()
+	area.show_action()
+	current_zone = area
+	
+func _on_interaction_box_area_exited(area):
+	match area.type:
+		action_zone.zone_type.sleep:
+			area.hide_action()
+			ui.hide_sleep_stuff()
+		action_zone.zone_type.dig:
+			area.hide_action()
+			ui.hide_dig_stuff()
+	current_zone = null
+

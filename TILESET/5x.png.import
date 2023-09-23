@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blth7a6oop3ov"
-path="res://.godot/imported/sun-moon.png-518d48ec677e9f3eacab8ef401fb4fc3.ctex"
+uid="uid://bafv1iouwv338"
+path="res://.godot/imported/5x.png-6a9b07487ef0a11abe80ff320fdc2f8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/sun-moon.png"
-dest_files=["res://.godot/imported/sun-moon.png-518d48ec677e9f3eacab8ef401fb4fc3.ctex"]
+source_file="res://TILESET/5x.png"
+dest_files=["res://.godot/imported/5x.png-6a9b07487ef0a11abe80ff320fdc2f8c.ctex"]
 
 [params]
 

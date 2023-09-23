@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bu6wqmxaqbpea" path="res://SPRITES/ITEMS/sun.png" id="5_87rmp"]
 [ext_resource type="Texture2D" uid="uid://duoofrnk02de2" path="res://SPRITES/ITEMS/moon.png" id="6_fkbis"]
 [ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="7_rd8xl"]
-[ext_resource type="Texture2D" uid="uid://dnidkg4v43ofa" path="res://SPRITES/ITEMS/arrow-up.png" id="7_w7tr0"]
 [ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="8_i5qe8"]
+[ext_resource type="Texture2D" uid="uid://btfm6nyxsa1x6" path="res://TILESET/up_arrow.tres" id="8_opk5w"]
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="9_3g3jg"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_aqw0e"]
@@ -21,13 +21,13 @@ thickness = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y0w7u"]
 shader = ExtResource("4_y3sf8")
-shader_parameter/vertJerkOpt = 0.04
+shader_parameter/vertJerkOpt = 0.0
 shader_parameter/vertMovementOpt = 0.0
 shader_parameter/bottomStaticOpt = 0.0
-shader_parameter/bottomStaticStrenth = 0.7
-shader_parameter/scalinesOpt = 1.97
-shader_parameter/rgbOffsetOpt = 0.2
-shader_parameter/horzFuzzOpt = 0.15
+shader_parameter/bottomStaticStrenth = 0.0
+shader_parameter/scalinesOpt = 2.0
+shader_parameter/rgbOffsetOpt = 0.3
+shader_parameter/horzFuzzOpt = 0.2
 
 [node name="World" type="Node2D"]
 scale = Vector2(4, 4)
@@ -43,7 +43,7 @@ tween_duration = 0.2
 
 [node name="Player" parent="." instance=ExtResource("2_fowwk")]
 position = Vector2(80, 112)
-velocity_multiplier = 400.0
+velocity_multiplier = 500.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_3wit5")
@@ -100,7 +100,7 @@ offset_top = 111.0
 offset_right = 529.0
 offset_bottom = 127.0
 scale = Vector2(2, 2)
-theme_override_icons/grabber = ExtResource("7_w7tr0")
+theme_override_icons/grabber = ExtResource("8_opk5w")
 theme_override_styles/slider = SubResource("StyleBoxLine_aqw0e")
 scrollable = false
 

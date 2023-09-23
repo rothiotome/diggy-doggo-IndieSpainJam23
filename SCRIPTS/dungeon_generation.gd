@@ -67,7 +67,7 @@ func generate_dungeon(size:int) -> Dictionary:
 					if(dungeon.get(i).connected_rooms.get(Vector2(0, -1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_position), Vector2(0, -1))
 	return dungeon
-	
+
 func instantiate_new_room(index:int) -> Node2D:
 	return rooms[index].instantiate()
 	

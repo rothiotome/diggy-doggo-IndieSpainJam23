@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wgu6trad80h1"]
 
-[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/LEVELS/home_room.tscn" id="1_x4t4x"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_x4t4x"]
 [ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/saw.tscn" id="2_5uer0"]
 [ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://SCENES/pickable_food.tscn" id="3_qpfr0"]
 

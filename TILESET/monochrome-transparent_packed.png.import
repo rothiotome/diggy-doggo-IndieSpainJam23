@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://in6wvim6e3h"
-path="res://.godot/imported/sun (2).png-0fdb24285046f9a7305bc2e9536a6db4.ctex"
+uid="uid://cp6j5x0ilj7jl"
+path="res://.godot/imported/monochrome-transparent_packed.png-56724e53dc8e3675fe6669f3b3ebefe4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TILESET/sun (2).png"
-dest_files=["res://.godot/imported/sun (2).png-0fdb24285046f9a7305bc2e9536a6db4.ctex"]
+source_file="res://TILESET/monochrome-transparent_packed.png"
+dest_files=["res://.godot/imported/monochrome-transparent_packed.png-56724e53dc8e3675fe6669f3b3ebefe4.ctex"]
 
 [params]
 

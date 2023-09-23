@@ -35,11 +35,30 @@ func player_hurt(damage:int):
 func player_picked_object(type:Pickable.resource_type):
 	canvas_layer.pick_item(type)
 	
-func game_over():
-	print("GameOver")
-	get_tree().reload_current_scene()
+func enter_home():
+	daylight_timer.paused = true
+	
+func exit_home():
+	daylight_timer.paused = false
+	
+func sleep():
+	print("i'm sleeping")
+	Globals.remove_item(Pickable.resource_type.food)
+	Globals.remove_item(Pickable.resource_type.wood)
+	reload_scene()
+
+func dig():
+	print("i'm digging")
+	Globals.remove_item(Pickable.resource_type.shovel)
+	Globals.hole_size += 1
 
 func _on_daylight_timer_timeout():
-	Globals.current_daylight_duration = Globals.daylight_duration
-	start_day()
+	game_over()
+	
+func game_over():
+	Globals.reset()
+	reload_scene()
+	
+func reload_scene():
+	get_tree().reload_current_scene()
 

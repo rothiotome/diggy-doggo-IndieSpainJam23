@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgwxlu4ih22l3"]
+
+[ext_resource type="Script" path="res://SCRIPTS/action_zone.gd" id="1_tp8v4"]
+[ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://TILESET/action.tres" id="2_gwtu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f083w"]
+size = Vector2(50, 50)
+
+[node name="ActionZone" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_tp8v4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f083w")
+debug_color = Color(0.898039, 0, 0.776471, 0.419608)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Action" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("2_gwtu6")

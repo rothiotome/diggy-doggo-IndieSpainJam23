@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmxuhems8ya3s"
-path="res://.godot/imported/ezgif-2-c38b5f0dcc.png-174400ab9a7bfe2f2903a090d2a3e396.ctex"
+uid="uid://dn10hep513d0c"
+path="res://.godot/imported/danger.png-2064c0ecd4a2da91d588e312eade8636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/ezgif-2-c38b5f0dcc.png"
-dest_files=["res://.godot/imported/ezgif-2-c38b5f0dcc.png-174400ab9a7bfe2f2903a090d2a3e396.ctex"]
+source_file="res://SPRITES/ITEMS/danger.png"
+dest_files=["res://.godot/imported/danger.png-2064c0ecd4a2da91d588e312eade8636.ctex"]
 
 [params]
 

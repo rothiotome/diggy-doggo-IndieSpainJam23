@@ -1,814 +1,237 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkix8aaefcba1"]
+[gd_scene load_steps=26 format=3 uid="uid://drueu5boieav"]
 
-[ext_resource type="Script" path="res://SCRIPTS/room.gd" id="1_aq22n"]
-[ext_resource type="Texture2D" uid="uid://dlwbyxv5a0lhc" path="res://TILESET/monochrome_tilemap_transparent_packed.png" id="2_3amnu"]
-[ext_resource type="PackedScene" uid="uid://bl6q3ostqr6q" path="res://SCENES/door.tscn" id="3_dbp7y"]
-[ext_resource type="PackedScene" uid="uid://bm3lmc63r3lrf" path="res://SCENES/open_door_button.tscn" id="4_5ovgp"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_jrwvf"]
+[ext_resource type="Texture2D" uid="uid://lwy748jwh4ff" path="res://SPRITES/ITEMS/item1BIT_coin.png" id="2_cd01a"]
+[ext_resource type="Texture2D" uid="uid://c7x842ux26u4v" path="res://TILESET/fire-anim.png" id="3_oct0e"]
+[ext_resource type="Texture2D" uid="uid://dfrr2xoj5bfpa" path="res://TILESET/bed.tres" id="4_fa7ad"]
+[ext_resource type="Texture2D" uid="uid://c5eq10777xnh0" path="res://TILESET/up-bed-f1.tres" id="5_tqc46"]
+[ext_resource type="Texture2D" uid="uid://ca34ysrvfpiux" path="res://TILESET/up-bed-f2.tres" id="6_70ksy"]
+[ext_resource type="Texture2D" uid="uid://b0qgxxjs84tr5" path="res://SPRITES/HEROS/spritesheets/HEROS1bit_Dog Idle D.png" id="7_mamle"]
+[ext_resource type="Texture2D" uid="uid://bcgk3ngxgugp4" path="res://TILESET/up_arrow_simple.tres" id="8_1qdnh"]
+[ext_resource type="Texture2D" uid="uid://biwhh8mnetiya" path="res://SPRITES/ITEMS/item1BIT_skull.png" id="9_6n6m8"]
+[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="9_qchtx"]
+[ext_resource type="Texture2D" uid="uid://bbk83rwyobji2" path="res://SPRITES/ITEMS/up.png" id="10_252q2"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="10_vtt04"]
+[ext_resource type="Texture2D" uid="uid://n3oqme2ob8j2" path="res://SPRITES/ITEMS/happy-face.png" id="11_xlrm3"]
+[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="12_l7k1k"]
+[ext_resource type="Texture2D" uid="uid://bnpiutvw24i3t" path="res://SPRITES/ITEMS/5x-petit.png" id="12_ykvel"]
+[ext_resource type="Texture2D" uid="uid://duoofrnk02de2" path="res://SPRITES/ITEMS/moon.png" id="14_w86rb"]
+[ext_resource type="PackedScene" uid="uid://bgwxlu4ih22l3" path="res://SCENES/action_zone.tscn" id="17_s1pd4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rhpx"]
+atlas = ExtResource("3_oct0e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxs0v"]
+atlas = ExtResource("3_oct0e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvyok"]
+atlas = ExtResource("3_oct0e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tivlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rhpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxs0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvyok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm2qc"]
+radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44cdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tqc46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_70ksy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6u4k"]
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qadqn"]
 size = Vector2(144, 144)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w5wre"]
-load_path = "res://.godot/imported/PixelPackTOPDOWN1BIT.png-090b9ab02a76df45f6f87262503a1ba2.ctex"
+[node name="HomeRoom" instance=ExtResource("1_jrwvf")]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lkwh"]
-texture = SubResource("CompressedTexture2D_w5wre")
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-10:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-15:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-7:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-10:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
-0:16/0 = 0
-1:16/0 = 0
-2:16/0 = 0
-3:16/0 = 0
-4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
-7:16/0 = 0
-8:16/0 = 0
-9:16/0 = 0
-10:16/0 = 0
-11:16/0 = 0
-12:16/0 = 0
-13:16/0 = 0
-14:16/0 = 0
-15:16/0 = 0
-0:17/0 = 0
-1:17/0 = 0
-2:17/0 = 0
-3:17/0 = 0
-4:17/0 = 0
-5:17/0 = 0
-6:17/0 = 0
-7:17/0 = 0
-8:17/0 = 0
-9:17/0 = 0
-10:17/0 = 0
-11:17/0 = 0
-12:17/0 = 0
-13:17/0 = 0
-14:17/0 = 0
-15:17/0 = 0
-0:18/0 = 0
-1:18/0 = 0
-2:18/0 = 0
-3:18/0 = 0
-4:18/0 = 0
-5:18/0 = 0
-6:18/0 = 0
-7:18/0 = 0
-8:18/0 = 0
-9:18/0 = 0
-10:18/0 = 0
-11:18/0 = 0
-12:18/0 = 0
-13:18/0 = 0
-14:18/0 = 0
-15:18/0 = 0
-0:19/0 = 0
-1:19/0 = 0
-2:19/0 = 0
-3:19/0 = 0
-4:19/0 = 0
-5:19/0 = 0
-6:19/0 = 0
-7:19/0 = 0
-8:19/0 = 0
-9:19/0 = 0
-10:19/0 = 0
-11:19/0 = 0
-12:19/0 = 0
-13:19/0 = 0
-14:19/0 = 0
-15:19/0 = 0
-0:20/0 = 0
-1:20/0 = 0
-2:20/0 = 0
-3:20/0 = 0
-4:20/0 = 0
-5:20/0 = 0
-6:20/0 = 0
-7:20/0 = 0
-8:20/0 = 0
-9:20/0 = 0
-10:20/0 = 0
-11:20/0 = 0
-12:20/0 = 0
-13:20/0 = 0
-14:20/0 = 0
-15:20/0 = 0
-0:21/0 = 0
-1:21/0 = 0
-2:21/0 = 0
-3:21/0 = 0
-4:21/0 = 0
-5:21/0 = 0
-6:21/0 = 0
-7:21/0 = 0
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+metadata/_edit_lock_ = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bsxq"]
-texture = ExtResource("2_3amnu")
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-16:1/0 = 0
-17:1/0 = 0
-18:1/0 = 0
-19:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-16:2/0 = 0
-17:2/0 = 0
-18:2/0 = 0
-19:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-16:3/0 = 0
-17:3/0 = 0
-18:3/0 = 0
-19:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-16:4/0 = 0
-17:4/0 = 0
-18:4/0 = 0
-19:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-16:5/0 = 0
-17:5/0 = 0
-18:5/0 = 0
-19:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-17:6/0 = 0
-18:6/0 = 0
-19:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-18:7/0 = 0
-19:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
-18:8/0 = 0
-19:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-19:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-18:10/0 = 0
-19:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
-18:11/0 = 0
-19:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-16:12/0 = 0
-17:12/0 = 0
-18:12/0 = 0
-19:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-16:13/0 = 0
-17:13/0 = 0
-18:13/0 = 0
-19:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-10:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-15:14/0 = 0
-16:14/0 = 0
-17:14/0 = 0
-18:14/0 = 0
-19:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-7:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-10:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
-16:15/0 = 0
-17:15/0 = 0
-18:15/0 = 0
-19:15/0 = 0
-0:16/0 = 0
-1:16/0 = 0
-2:16/0 = 0
-3:16/0 = 0
-4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
-7:16/0 = 0
-8:16/0 = 0
-9:16/0 = 0
-10:16/0 = 0
-11:16/0 = 0
-12:16/0 = 0
-13:16/0 = 0
-14:16/0 = 0
-15:16/0 = 0
-16:16/0 = 0
-17:16/0 = 0
-18:16/0 = 0
-19:16/0 = 0
-0:17/0 = 0
-1:17/0 = 0
-2:17/0 = 0
-3:17/0 = 0
-4:17/0 = 0
-5:17/0 = 0
-6:17/0 = 0
-7:17/0 = 0
-8:17/0 = 0
-9:17/0 = 0
-10:17/0 = 0
-11:17/0 = 0
-12:17/0 = 0
-13:17/0 = 0
-14:17/0 = 0
-15:17/0 = 0
-16:17/0 = 0
-17:17/0 = 0
-18:17/0 = 0
-19:17/0 = 0
-0:18/0 = 0
-1:18/0 = 0
-2:18/0 = 0
-3:18/0 = 0
-4:18/0 = 0
-5:18/0 = 0
-6:18/0 = 0
-7:18/0 = 0
-8:18/0 = 0
-9:18/0 = 0
-10:18/0 = 0
-11:18/0 = 0
-12:18/0 = 0
-13:18/0 = 0
-14:18/0 = 0
-15:18/0 = 0
-16:18/0 = 0
-17:18/0 = 0
-19:18/0 = 0
-0:19/0 = 0
-1:19/0 = 0
-2:19/0 = 0
-3:19/0 = 0
-4:19/0 = 0
-5:19/0 = 0
-6:19/0 = 0
-7:19/0 = 0
-8:19/0 = 0
-9:19/0 = 0
-10:19/0 = 0
-11:19/0 = 0
-12:19/0 = 0
-13:19/0 = 0
-14:19/0 = 0
-15:19/0 = 0
-16:19/0 = 0
-17:19/0 = 0
-18:19/0 = 0
-19:19/0 = 0
+[node name="Background" parent="." index="1"]
+modulate = Color(0.00784314, 0.494118, 0.772549, 1)
 
-[sub_resource type="TileSet" id="TileSet_q5eb5"]
-sources/0 = SubResource("TileSetAtlasSource_5lkwh")
-sources/1 = SubResource("TileSetAtlasSource_3bsxq")
+[node name="Item1bitBones" type="Sprite2D" parent="." index="8"]
+position = Vector2(128, 24)
+texture = ExtResource("2_cd01a")
 
-[node name="HomeRoom" type="Node2D"]
-position = Vector2(-80, -80)
-script = ExtResource("1_aq22n")
+[node name="AnimatedFire" type="AnimatedSprite2D" parent="." index="9"]
+position = Vector2(48, 24)
+sprite_frames = SubResource("SpriteFrames_tivlv")
+autoplay = "default"
+frame_progress = 0.319065
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 256
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedFire" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedFire/StaticBody2D" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_xm2qc")
+
+[node name="Bed" type="Sprite2D" parent="." index="10"]
+position = Vector2(24, 32)
+texture = ExtResource("4_fa7ad")
+
+[node name="Animatedbed" type="AnimatedSprite2D" parent="Bed" index="0"]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_44cdu")
+autoplay = "default"
+frame_progress = 0.979992
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bed" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_p6u4k")
+
+[node name="Floor-decor" type="Node2D" parent="." index="11"]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+
+[node name="meat" type="Sprite2D" parent="Floor-decor" index="0"]
+position = Vector2(40, 56)
+texture = ExtResource("9_qchtx")
+
+[node name="up-arrow" type="Sprite2D" parent="Floor-decor/meat" index="0"]
+position = Vector2(0.5, -16.5)
+texture = ExtResource("8_1qdnh")
+
+[node name="wood" type="Sprite2D" parent="Floor-decor" index="1"]
+position = Vector2(56, 56.5)
+texture = ExtResource("10_vtt04")
+
+[node name="up-arrow" type="Sprite2D" parent="Floor-decor/wood" index="0"]
+position = Vector2(0.5, -16.5)
+texture = ExtResource("8_1qdnh")
+
+[node name="shovel" type="Sprite2D" parent="Floor-decor" index="2"]
+position = Vector2(128, 56.5)
+texture = ExtResource("12_l7k1k")
+
+[node name="up-arrow" type="Sprite2D" parent="Floor-decor/shovel" index="0"]
+position = Vector2(0.5, -16.5)
+texture = ExtResource("8_1qdnh")
+
+[node name="Dangers" type="Node2D" parent="Floor-decor" index="3"]
+position = Vector2(0, 16)
+
+[node name="skull" type="Sprite2D" parent="Floor-decor/Dangers" index="0"]
+position = Vector2(136, 112)
+texture = ExtResource("11_xlrm3")
+
+[node name="moon" type="Sprite2D" parent="Floor-decor/Dangers" index="1"]
+position = Vector2(104, 112)
+texture = ExtResource("12_l7k1k")
+
+[node name="moon2" type="Sprite2D" parent="Floor-decor/Dangers" index="2"]
+position = Vector2(104, 96)
+texture = ExtResource("12_ykvel")
+
+[node name="equal2" type="Sprite2D" parent="Floor-decor/Dangers" index="3"]
+position = Vector2(120, 112)
+rotation = 1.5708
+texture = ExtResource("10_252q2")
+
+[node name="Goal" type="Node2D" parent="Floor-decor" index="4"]
+position = Vector2(-80, 16)
+
+[node name="skull" type="Sprite2D" parent="Floor-decor/Goal" index="0"]
+position = Vector2(136, 112)
+texture = ExtResource("9_6n6m8")
+
+[node name="moon" type="Sprite2D" parent="Floor-decor/Goal" index="1"]
+position = Vector2(104, 112)
+texture = ExtResource("14_w86rb")
+
+[node name="equal" type="Sprite2D" parent="Floor-decor/Goal" index="2"]
+position = Vector2(120, 112)
+rotation = 1.57079
+texture = ExtResource("10_252q2")
+
+[node name="Movement" type="Node2D" parent="Floor-decor" index="5"]
+visible = false
+
+[node name="Doggo" type="Sprite2D" parent="Floor-decor/Movement" index="0"]
+position = Vector2(48, 112)
+texture = ExtResource("7_mamle")
+hframes = 8
+
+[node name="Up2" type="Sprite2D" parent="Floor-decor/Movement" index="1"]
+position = Vector2(48, 96)
+texture = ExtResource("10_252q2")
+
+[node name="Up3" type="Sprite2D" parent="Floor-decor/Movement" index="2"]
+position = Vector2(32, 112)
+rotation = -1.57079
+texture = ExtResource("10_252q2")
+
+[node name="Up4" type="Sprite2D" parent="Floor-decor/Movement" index="3"]
+position = Vector2(48, 128)
+rotation = -3.14159
+texture = ExtResource("10_252q2")
+
+[node name="Up5" type="Sprite2D" parent="Floor-decor/Movement" index="4"]
+position = Vector2(64, 112)
+rotation = 1.5708
+texture = ExtResource("10_252q2")
+
+[node name="Safe-Space" type="Area2D" parent="." index="12"]
+collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe-Space" index="0"]
 position = Vector2(80, 80)
 shape = SubResource("RectangleShape2D_qadqn")
+metadata/_edit_lock_ = true
 
-[node name="Background" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_q5eb5")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 524288, 10, 65536, 524288, 11, 131072, 524288, 11, 196608, 524288, 11, 262144, 524288, 11, 327680, 524288, 11, 393216, 524288, 11, 458752, 524288, 11, 524288, 524288, 11, 589824, 524288, 12, 589825, 589824, 12, 589826, 589824, 12, 589827, 589824, 12, 589828, 589824, 12, 589829, 589824, 12, 589830, 589824, 12, 589831, 589824, 12, 589832, 589824, 12, 589833, 655360, 12, 524297, 655360, 11, 458761, 655360, 11, 393225, 655360, 11, 327689, 655360, 11, 262153, 655360, 11, 196617, 655360, 11, 131081, 655360, 11, 65545, 655360, 11, 9, 655360, 10, 8, 589824, 10, 7, 589824, 10, 6, 589824, 10, 3, 589824, 10, 2, 589824, 10, 1, 589824, 10, 65537, 65536, 2, 65538, 65536, 2, 327682, 196608, 2, 196611, 131072, 2, 327683, 65536, 0, 327684, 196608, 2, 65541, 327680, 2, 196614, 65536, 0, 524293, 327680, 2, 65543, 196608, 2, 262150, 196608, 2, 196613, 262144, 2, 131077, 65536, 2, 196609, 262144, 2, 327681, 327680, 2, 458755, 65536, 0, 524291, 327680, 2, 262151, 131072, 2, 65544, 327680, 2, 458760, 65536, 2, 4, 589824, 10, 5, 589824, 10)
+[node name="ActionZone" parent="." index="13" instance=ExtResource("17_s1pd4")]
+position = Vector2(24, 24)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" parent="ActionZone" index="0"]
+position = Vector2(15, 15)
+debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(72, 0, 72, 16, 16, 16, 16, 72, 0, 72, 0, 0)
+[node name="Node2D" parent="ActionZone" index="1"]
+position = Vector2(16, -16)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(96, 96)
-polygon = PackedVector2Array(48, -8, 64, -8, 64, 64, -8, 64, -8, 48, 48, 48)
+[node name="ActionZone2" parent="." index="14" instance=ExtResource("17_s1pd4")]
+position = Vector2(104, 24)
+type = 1
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(0, 96)
-polygon = PackedVector2Array(16, 48, 72, 48, 72, 64, 0, 64, 0, -8, 16, -8)
+[node name="CollisionShape2D" parent="ActionZone2" index="0"]
+position = Vector2(15, 15)
+debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(96, 0)
-polygon = PackedVector2Array(64, 0, 64, 72, 48, 72, 48, 16, -8, 16, -8, 0)
+[node name="Node2D" parent="ActionZone2" index="1"]
+position = Vector2(24, -16)
 
-[node name="up_door" parent="." instance=ExtResource("3_dbp7y")]
-position = Vector2(80, 8)
+[connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered" flags=18]
+[connection signal="body_entered" from="Safe-Space" to="." method="_on_safe_space_body_entered"]
+[connection signal="body_exited" from="Safe-Space" to="." method="_on_safe_space_body_exited"]
 
-[node name="right_door" parent="." instance=ExtResource("3_dbp7y")]
-position = Vector2(152, 80)
-rotation = 1.5708
-
-[node name="left_door" parent="." instance=ExtResource("3_dbp7y")]
-position = Vector2(8, 80)
-rotation = -1.5708
-
-[node name="down_door" parent="." instance=ExtResource("3_dbp7y")]
-position = Vector2(80, 152)
-rotation = 3.14159
-
-[node name="OpenDoorButton" parent="." instance=ExtResource("4_5ovgp")]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[editable path="ActionZone"]
+[editable path="ActionZone2"]

@@ -1,7 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://de0pmnn81f0e"]
+[gd_scene load_steps=31 format=3 uid="uid://de0pmnn81f0e"]
 
 [ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_5jcwf"]
 [ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://SPRITES/HEROS/spritesheets/doggoSpriteSheet.png" id="2_2gpcj"]
+[ext_resource type="Texture2D" uid="uid://xq8ajmmmcjcv" path="res://TILESET/thought.tres" id="3_fwhsp"]
+[ext_resource type="Script" path="res://SCENES/player_UI.gd" id="3_l7ynd"]
+[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="4_x7g4e"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="5_vj8aq"]
+[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="6_5lx7v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5whl"]
 radius = 4.0
@@ -295,6 +300,68 @@ _data = {
 "walk_U": SubResource("Animation_qkupr")
 }
 
+[sub_resource type="Animation" id="Animation_gye8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bubble-food:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bubble-wood:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -33)]
+}
+
+[sub_resource type="Animation" id="Animation_khdn4"]
+resource_name = "thoughts"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bubble-food:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, -33), Vector2(-18, -35), Vector2(-21, -35), Vector2(-23, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bubble-wood:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -33), Vector2(-1, -31), Vector2(-2, -35), Vector2(2, -31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4llvt"]
+_data = {
+"RESET": SubResource("Animation_gye8k"),
+"thoughts": SubResource("Animation_khdn4")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 61
@@ -329,6 +396,15 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_526cy")
 debug_color = Color(0.862745, 0.172549, 0.772549, 0.419608)
 
+[node name="InteractionBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_526cy")
+debug_color = Color(0.862745, 0.172549, 0.772549, 0.419608)
+
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -342,6 +418,62 @@ libraries = {
 "": SubResource("AnimationLibrary_v4otn")
 }
 
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("3_l7ynd")
+
+[node name="sleep_thoughts" type="Node2D" parent="UI"]
+
+[node name="bubble-food" type="Sprite2D" parent="UI/sleep_thoughts"]
+visible = false
+self_modulate = Color(0.176471, 0.741176, 0.564706, 1)
+position = Vector2(-20, -33)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_fwhsp")
+offset = Vector2(8, 8)
+
+[node name="food" type="Sprite2D" parent="UI/sleep_thoughts/bubble-food"]
+position = Vector2(6.66667, 7.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_x7g4e")
+
+[node name="bubble-wood" type="Sprite2D" parent="UI/sleep_thoughts"]
+visible = false
+self_modulate = Color(0.176471, 0.741176, 0.564706, 1)
+position = Vector2(0, -33)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_fwhsp")
+offset = Vector2(8, 8)
+flip_h = true
+
+[node name="food" type="Sprite2D" parent="UI/sleep_thoughts/bubble-wood"]
+position = Vector2(9.16667, 7.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vj8aq")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/sleep_thoughts"]
+autoplay = "thoughts"
+libraries = {
+"": SubResource("AnimationLibrary_4llvt")
+}
+
+[node name="dig_thoughts" type="Node2D" parent="UI"]
+
+[node name="bubble-shovel" type="Sprite2D" parent="UI/dig_thoughts"]
+visible = false
+self_modulate = Color(0.176471, 0.741176, 0.564706, 1)
+position = Vector2(-15, -34)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_fwhsp")
+offset = Vector2(8, 8)
+
+[node name="shovel" type="Sprite2D" parent="UI/dig_thoughts/bubble-shovel"]
+position = Vector2(6.66667, 7.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_5lx7v")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="PickableBox" to="." method="_on_pickable_box_area_entered"]
+[connection signal="area_entered" from="InteractionBox" to="." method="_on_interaction_box_area_entered"]
+[connection signal="area_exited" from="InteractionBox" to="." method="_on_interaction_box_area_exited"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_timer_timeout"]

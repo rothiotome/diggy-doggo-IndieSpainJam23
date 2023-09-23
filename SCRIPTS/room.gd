@@ -19,7 +19,7 @@ var number_of_connections:int = 0
 var reward:Pickable
 
 func _ready():
-	open_door_button.on_button_pushed.connect(open_room_doors)
+	open_door_button.on_button_pushed.connect(on_button_pushed)
 	reward = get_reward()
 	if Globals.consumed_room.has(self.scene_file_path): disable_reward()
 	if reward != null : reward.on_picked.connect(reward_picked)
@@ -33,7 +33,8 @@ func setup():
 				Vector2.RIGHT: right_door.set_door_state(door.door_state.DISABLED)
 				Vector2.LEFT: left_door.set_door_state(door.door_state.DISABLED)
 
-func open_room_doors():
+func on_button_pushed():
+	if reward != null : reward.show_pickable()
 	open_if_enabled(up_door)
 	open_if_enabled(down_door)
 	open_if_enabled(right_door)
@@ -66,4 +67,10 @@ func get_reward() -> Pickable:
 	return child
 	
 func disable_reward():
-	reward.pick()
+	reward.is_picked = true
+
+func _on_safe_space_body_entered(body):
+	get_node("/root/World").enter_home()
+
+func _on_safe_space_body_exited(body):
+	get_node("/root/World").exit_home()
