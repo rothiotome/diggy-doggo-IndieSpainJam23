@@ -13,9 +13,11 @@ class_name player
 @onready var ui:player_ui = $UI
 
 var current_zone:action_zone = null
+var can_move:bool = true
 
 signal on_pick_object 
 signal on_hurt
+signal on_action_area_entered
 
 var is_invulnerable:bool = false
 
@@ -24,6 +26,7 @@ func _ready():
 
 func _physics_process(_delta):
 	get_input()
+	if !can_move: velocity = Vector2.ZERO
 	move_and_slide()
 	animate()
 
@@ -73,15 +76,27 @@ func frame_freeze(duration):
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1
 	
+func restore_movement():
+	can_move = true
+	
+func pause_movement():
+	can_move = false
+
+func hide_ui():
+	current_zone.hide_action()
+	ui.hide_dig_stuff()
+	ui.hide_sleep_stuff()
+
 func try_to_action():
 	if current_zone == null: return
 	match current_zone.type:
 		action_zone.zone_type.sleep:
 			if Globals.has_item(Pickable.resource_type.wood) && Globals.has_item(Pickable.resource_type.food):
-				get_parent().sleep()
+				get_parent().sleep(current_zone)
+				hide()
 		action_zone.zone_type.dig:
 			if Globals.has_item(Pickable.resource_type.shovel):
-				get_parent().dig()
+				get_parent().dig(current_zone)
 				
 func _on_timer_timeout():
 	is_invulnerable = false
@@ -106,15 +121,14 @@ func _on_interaction_box_area_entered(area:action_zone):
 		action_zone.zone_type.dig:
 			ui.show_dig_stuff()
 	area.show_action()
+	on_action_area_entered.emit(area.type)
 	current_zone = area
 	
 func _on_interaction_box_area_exited(area):
 	match area.type:
 		action_zone.zone_type.sleep:
-			area.hide_action()
 			ui.hide_sleep_stuff()
 		action_zone.zone_type.dig:
-			area.hide_action()
 			ui.hide_dig_stuff()
+	area.hide_action()
 	current_zone = null
-

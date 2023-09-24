@@ -13,6 +13,15 @@ enum zone_type {
 	dig
 }
 
+func do_action():
+	match type:
+		zone_type.sleep:
+			var anim_fire = $AnimatedFire as AnimatedSprite2D
+			anim_fire.animation = "on"
+			$Bed/Animatedbed.show()
+		zone_type.dig:
+			$hole.update_visuals()
+
 func show_action():
 	match type:
 		zone_type.sleep:
@@ -28,3 +37,7 @@ func hide_action():
 	if tween != null:
 		tween.kill()
 	action_sprite.visible = false
+
+func _on_tree_exiting():
+	if tween != null:
+		tween.kill()

@@ -11,7 +11,6 @@ extends Node2D
 func _ready():
 	$Path2D/PathFollow2D/SawSprite/Area2D.parent = self
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	path_follow_2d.progress_ratio += delta*movement_speed
 	sprite_2d.rotation_degrees += delta*rotation_speed

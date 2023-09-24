@@ -18,6 +18,16 @@ var end_day_hour:int = 20
 var current_hour: int = 0
 var current_minute: int = 0
 
+signal on_message_closed
+
+func _process(_delta):
+	if timer.is_stopped():
+		return
+	update_time_and_progress()
+
+func _ready():
+	message_panel.connect("on_message_closed", message_closed)
+
 func pick_item(item:Pickable.resource_type):
 	match item:
 		Pickable.resource_type.food:
@@ -44,9 +54,11 @@ func remove_item(item:Pickable.resource_type):
 func localize_and_show_message(message_key:String):
 	message_panel.show_message(tr(message_key))
 	
-
 func show_message(message_key:String):
 	message_panel.show_message(message_key)
+
+func message_closed(): 
+	on_message_closed.emit()
 
 func update_time_and_progress():
 	var progress = 100 -(timer.time_left / Globals.current_daylight_duration) * 100
@@ -77,10 +89,10 @@ func flash_item(item:Pickable.resource_type):
 
 func flash_sprite(texture:TextureRect):
 	var tween = get_tree().create_tween()
-	tween.tween_property(texture, "position", Vector2(randi_range(-2, 2), randi_range(-2, 2)), 0.5)
+	for n in 15:
+		randomize()
+		tween.tween_property(texture, "position", Vector2(randi_range(-10, 10), randi_range(-10, 10)), 0.05).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(texture, "position", Vector2.ZERO, 0.1)
 
-func _process(_delta):
-	if timer.is_stopped():
-		return
-	update_time_and_progress()
+
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7mud6d2ljjvj"]
+[gd_scene load_steps=18 format=3 uid="uid://c7mud6d2ljjvj"]
 
 [ext_resource type="Script" path="res://SCRIPTS/game-manager.gd" id="1_4nufx"]
 [ext_resource type="PackedScene" uid="uid://de0pmnn81f0e" path="res://SCENES/player.tscn" id="2_fowwk"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="9_3g3jg"]
 [ext_resource type="Script" path="res://SCRIPTS/message_panel.gd" id="12_y1iib"]
 [ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://TILESET/action.tres" id="13_1y4k6"]
-[ext_resource type="Script" path="res://SCRIPTS/music_manager.gd" id="15_652dt"]
+[ext_resource type="Script" path="res://SCENES/music_manager.gd" id="15_p85y8"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_aqw0e"]
 color = Color(0, 0, 0, 0)
@@ -32,122 +32,6 @@ shader_parameter/scalinesOpt = 2.0
 shader_parameter/rgbOffsetOpt = 0.3
 shader_parameter/horzFuzzOpt = 0.2
 
-[sub_resource type="Animation" id="Animation_c7fxv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeCanvas-top:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(648, 300)]
-}
-
-[sub_resource type="Animation" id="Animation_6cj2h"]
-resource_name = "fade_out"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeCanvas-top:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(650, 300), Vector2(650, 300), Vector2(0, 300)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/FadeCanvas-mid:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(650, 300), Vector2(650, 300), Vector2(0, 300)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/FadeCanvas-bottom:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(650, 300), Vector2(650, 300), Vector2(0, 300)]
-}
-
-[sub_resource type="Animation" id="Animation_ndefu"]
-resource_name = "fade_in"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeCanvas-top:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 300), Vector2(650, 300), Vector2(650, 300)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/FadeCanvas-mid:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 300), Vector2(650, 300), Vector2(650, 300)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/FadeCanvas-bottom:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 300), Vector2(650, 300), Vector2(650, 300)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"fade_out_ended"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lwfk"]
-_data = {
-"RESET": SubResource("Animation_c7fxv"),
-"fade_in": SubResource("Animation_6cj2h"),
-"fade_out": SubResource("Animation_ndefu")
-}
-
 [node name="World" type="Node2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_4nufx")
@@ -161,50 +45,11 @@ tween_duration = 0.2
 [node name="MapNode" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_fowwk")]
-position = Vector2(78, 45)
+position = Vector2(80, 112)
 velocity_multiplier = 500.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_3wit5")
-
-[node name="FadeCanvas-top" type="ColorRect" parent="CanvasLayer"]
-offset_right = 648.0
-offset_bottom = 300.0
-auto_translate = false
-localize_numeral_system = false
-mouse_force_pass_scroll_events = false
-color = Color(0, 0, 0, 1)
-
-[node name="FadeCanvas-mid" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -100.0
-offset_right = 5.0
-offset_bottom = 200.0
-grow_horizontal = 0
-grow_vertical = 2
-rotation = -3.14159
-pivot_offset = Vector2(6.10352e-05, 150)
-auto_translate = false
-localize_numeral_system = false
-mouse_force_pass_scroll_events = false
-color = Color(0, 0, 0, 1)
-
-[node name="FadeCanvas-bottom" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = 100.0
-grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
-mouse_force_pass_scroll_events = false
-color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 10
@@ -379,7 +224,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("13_1y4k6")
 
-[node name="shader" type="ColorRect" parent="CanvasLayer"]
+[node name="Control" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y0w7u")
 anchors_preset = 15
 anchor_right = 1.0
@@ -391,15 +236,7 @@ metadata/_edit_lock_ = true
 [node name="DaylightTimer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
-bus = &"Music"
-script = ExtResource("15_652dt")
+volume_db = -80.0
+script = ExtResource("15_p85y8")
 
-[node name="fader" type="AnimationPlayer" parent="."]
-autoplay = "fade_in"
-libraries = {
-"": SubResource("AnimationLibrary_3lwfk")
-}
-
-[connection signal="tree_exiting" from="CanvasLayer/message_panel" to="CanvasLayer/message_panel" method="_on_tree_exiting"]
 [connection signal="timeout" from="DaylightTimer" to="." method="_on_daylight_timer_timeout"]

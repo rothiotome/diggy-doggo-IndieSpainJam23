@@ -4,6 +4,8 @@ extends Control
 @onready var message_border = $message_border
 @onready var action_image = $message_border/message_canvas/Control/action_image
 
+signal on_message_closed
+
 var message_is_visible = false
 
 var tween:Tween
@@ -19,6 +21,7 @@ func hide_message():
 		tween.kill()
 	action_image.visible = false
 	message_is_visible = false
+	on_message_closed.emit()
 
 func show_message(message:String):
 	message_border.show()
@@ -31,3 +34,7 @@ func can_close_message():
 	tween = get_tree().create_tween().set_loops()
 	tween.tween_property(action_image, "position", Vector2.DOWN*2, 0.2)
 	tween.tween_property(action_image, "position", Vector2.UP*2, 0.2)
+
+func _on_tree_exiting():
+	if tween != null:
+		tween.kill()

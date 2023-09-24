@@ -17,11 +17,11 @@ vec2 uv_curve(vec2 uv)
 	uv = (uv - 0.5) * 2.0;
 	
 	//You can modify the numbers and try different values
-	uv.x *= 1.0 + pow(abs(uv.y) / 3.0, 2.0);
-	uv.y *= 1.0 + pow(abs(uv.x) / 3.0, 2.0);
+	uv.x *= 1.0 + pow(abs(uv.y) / 5.0, 2.0);
+	uv.y *= 1.0 + pow(abs(uv.x) / 5.0, 2.0);
 	
 	//The scale part (you can delete it when you want)
-	uv /= 0.8;
+	//uv /= 1.2;
 	
 	uv = (uv/2.0) + 0.5;
 	return uv;
@@ -125,13 +125,16 @@ void fragment(){
 	
 	staticVal *= bottomStaticOpt;
 	
-	float red = texture(SCREEN_TEXTURE, vec2(uv.x + xOffset -0.01*rgbOffsetOpt,_y)).r+staticVal;
-	float green = texture(SCREEN_TEXTURE, vec2(uv.x + xOffset,_y)).g+staticVal;
-	float blue = texture(SCREEN_TEXTURE, vec2(uv.x + xOffset +0.01*rgbOffsetOpt,_y)).b+staticVal;
+	float red = texture(SCREEN_TEXTURE, uv_curve(vec2(uv.x + xOffset -0.01*rgbOffsetOpt,_y))).r+staticVal;
+	float green = texture(SCREEN_TEXTURE, uv_curve(vec2(uv.x + xOffset,_y))).g+staticVal;
+	float blue = texture(SCREEN_TEXTURE, uv_curve(vec2(uv.x + xOffset +0.01*rgbOffsetOpt,_y))).b+staticVal;
+	
 	
 	vec3 color = vec3(red,green,blue);
 	float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
 	color -= scanline;
+	
+	
 	
 	COLOR = vec4(color,1.0);
 }

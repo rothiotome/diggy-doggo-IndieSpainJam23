@@ -20,3 +20,5 @@ debug_color = Color(0.898039, 0, 0.776471, 0.419608)
 [node name="Action" type="Sprite2D" parent="Node2D"]
 visible = false
 texture = ExtResource("2_gwtu6")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
