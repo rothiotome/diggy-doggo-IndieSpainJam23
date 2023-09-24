@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://qo18w5b8ecoc"]
+
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/ENEMIES/saw.tscn" id="1_qe0cf"]
+[ext_resource type="Texture2D" uid="uid://c6ulmho1dfor2" path="res://SPRITES/ITEMS/minisaw.png" id="2_4xqlr"]
+
+[sub_resource type="Curve2D" id="Curve2D_h8117"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88)
+}
+point_count = 3
+
+[node name="Saw" instance=ExtResource("1_qe0cf")]
+
+[node name="Path2D" parent="." index="0"]
+curve = SubResource("Curve2D_h8117")
+
+[node name="SawSprite" parent="Path2D/PathFollow2D" index="0"]
+texture = ExtResource("2_4xqlr")

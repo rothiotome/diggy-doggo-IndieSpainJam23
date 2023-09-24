@@ -110,7 +110,7 @@ modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 
 [node name="OpenDoorButton" parent="." index="7"]
-position = Vector2(128, 32)
+position = Vector2(120, 120)
 
 [node name="released" parent="OpenDoorButton" index="0"]
 modulate = Color(0.768627, 0.760784, 0.0862745, 1)
@@ -144,7 +144,7 @@ position = Vector2(80, 80)
 texture = ExtResource("12_l7k1k")
 
 [node name="Dangers" type="Node2D" parent="Floor-decor" index="3"]
-position = Vector2(0, 16)
+position = Vector2(0, -80)
 
 [node name="skull" type="Sprite2D" parent="Floor-decor/Dangers" index="0"]
 position = Vector2(136, 112)

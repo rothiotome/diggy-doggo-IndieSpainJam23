@@ -3,7 +3,6 @@ extends CharacterBody2D
 class_name player
 
 @export var velocity_multiplier:float = 600.0
-@export var invulnerability_time:float = 1.0
 
 @onready var effects_anim = $Effects
 @onready var invulnerability_timer:Timer = $InvulnerabilityTimer
@@ -20,11 +19,14 @@ signal on_hurt
 signal on_action_area_entered
 
 var is_invulnerable:bool = false
+var is_hurting:bool = false
+var is_dead:bool = false
 
 func _ready():
 	Engine.time_scale = 1
 
 func _physics_process(_delta):
+	if is_dead: return
 	get_input()
 	if !can_move: velocity = Vector2.ZERO
 	move_and_slide()
@@ -48,11 +50,19 @@ func walk():
 			if velocity.y < 0: anim.play("walk_U")
 			else: anim.play("walk_D")
 	else:
-		match anim.current_animation:
-			"walk_R": anim.play("idle_R")
-			"walk_U": anim.play("idle_U")
-			"walk_D": anim.play("idle_D")
-
+		if is_hurting:
+			match anim.current_animation:
+				"walk_R": anim.play("hurt_R")
+				"walk_U": anim.play("hurt_U")
+				"walk_D": anim.play("hurt_D")
+				"idle_R": anim.play("hurt_R")
+				"idle_U": anim.play("hurt_U")
+				"idle_D": anim.play("hurt_D")
+		else:	
+			match anim.current_animation:
+				"walk_R": anim.play("idle_R")
+				"walk_U": anim.play("idle_U")
+				"walk_D": anim.play("idle_D")
 func roll():
 	if velocity != Vector2.ZERO: 
 		sprite.flip_h = velocity.x < 0
@@ -67,7 +77,7 @@ func roll():
 			"roll_D": anim.play("idle_D")
 	
 func start_invulnerability():
-	invulnerability_timer.start(1)
+	invulnerability_timer.start(0.2)
 	effects_anim.play("blink")
 	is_invulnerable = true
 
@@ -97,8 +107,17 @@ func try_to_action():
 		action_zone.zone_type.dig:
 			if Globals.has_item(Pickable.resource_type.shovel):
 				get_parent().dig(current_zone)
-				
+
+func kill():
+	is_dead = true
+	anim.play("death_D")
+
 func _on_timer_timeout():
+	if is_hurting:
+		is_hurting = false
+		can_move = true
+		invulnerability_timer.start(0.8)
+		return
 	is_invulnerable = false
 	
 func _on_pickable_box_area_entered(area):
@@ -112,6 +131,8 @@ func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return
 	on_hurt.emit(area.parent.damage_amount)
 	frame_freeze(0.2)
+	can_move = false
+	is_hurting = true
 	start_invulnerability()
 
 func _on_interaction_box_area_entered(area:action_zone):

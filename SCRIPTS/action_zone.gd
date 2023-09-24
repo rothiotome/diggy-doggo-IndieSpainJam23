@@ -21,7 +21,8 @@ func do_action():
 			$Bed/Animatedbed.show()
 		zone_type.dig:
 			$hole.update_visuals()
-
+	hide_action()
+	
 func show_action():
 	match type:
 		zone_type.sleep:

@@ -27,6 +27,8 @@ func _process(_delta):
 
 func _ready():
 	message_panel.connect("on_message_closed", message_closed)
+	for item in Globals.inventory:
+		pick_item(item)	
 
 func pick_item(item:Pickable.resource_type):
 	match item:
@@ -93,6 +95,4 @@ func flash_sprite(texture:TextureRect):
 		randomize()
 		tween.tween_property(texture, "position", Vector2(randi_range(-10, 10), randi_range(-10, 10)), 0.05).set_trans(Tween.TRANS_ELASTIC)
 	tween.tween_property(texture, "position", Vector2.ZERO, 0.1)
-
-
 

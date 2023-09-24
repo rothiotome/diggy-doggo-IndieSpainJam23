@@ -79,6 +79,7 @@ func action_area_entered(area:action_zone.zone_type):
 
 func game_over():
 	show_message("DIE_MESSAGE")
+	player.kill()
 	Globals.reset()
 	fader.play("fade_out")
 	
