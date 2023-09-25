@@ -15,7 +15,6 @@ func _ready():
 func fade_in():
 	if tween:
 		tween.kill()
-	if get_tree() == null: return
 	var tween = get_tree().create_tween()
 	tween.tween_property(filter, "cutoff_hz", 20000, 0.4)
 

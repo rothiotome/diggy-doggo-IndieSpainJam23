@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://drueu5boieav"]
+[gd_scene load_steps=32 format=3 uid="uid://drueu5boieav"]
 
 [ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_jrwvf"]
 [ext_resource type="Script" path="res://SCRIPTS/hole-controller.gd" id="2_y8acn"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bnpiutvw24i3t" path="res://SPRITES/ITEMS/5x-petit.png" id="12_ykvel"]
 [ext_resource type="Texture2D" uid="uid://duoofrnk02de2" path="res://SPRITES/ITEMS/moon.png" id="14_w86rb"]
 [ext_resource type="PackedScene" uid="uid://bgwxlu4ih22l3" path="res://SCENES/action_zone.tscn" id="17_s1pd4"]
+[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://SCENES/PICKABLES/pickable_shovel.tscn" id="20_ehogb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qadqn"]
 size = Vector2(144, 144)
@@ -275,13 +276,16 @@ modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 [node name="hole" type="Sprite2D" parent="DigZone" index="2"]
 position = Vector2(-12, 56)
 texture = ExtResource("3_nq2k6")
-hframes = 5
+hframes = 6
 script = ExtResource("2_y8acn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DigZone/hole" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DigZone/hole/StaticBody2D" index="0"]
 shape = SubResource("CircleShape2D_16v5d")
+
+[node name="pickable_shovel" parent="." index="12" instance=ExtResource("20_ehogb")]
+position = Vector2(136, 136)
 
 [connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="body_entered" from="Safe-Space" to="." method="_on_safe_space_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://de0pmnn81f0e"]
+[gd_scene load_steps=34 format=3 uid="uid://de0pmnn81f0e"]
 
 [ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_5jcwf"]
 [ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://SPRITES/HEROS/spritesheets/doggoSpriteSheet.png" id="2_2gpcj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="5_vj8aq"]
 [ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="6_5lx7v"]
 [ext_resource type="Texture2D" uid="uid://c65sv6o7qatr8" path="res://SPRITES/HEROS/spritesheets/particles.png" id="8_u2wtp"]
+[ext_resource type="PackedScene" uid="uid://deorawfpj56s8" path="res://SCENES/hourglass.tscn" id="9_dnn08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5whl"]
 radius = 4.0
@@ -86,6 +87,18 @@ tracks/2/path = NodePath("blood-particles:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hourglass:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -187,6 +200,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hourglass:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_63o24"]
 resource_name = "hurt_U"
@@ -210,6 +235,18 @@ tracks/1/path = NodePath("blood-particles:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hourglass:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -243,6 +280,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hourglass:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_thbgo"]
 resource_name = "idle_R"
@@ -271,6 +320,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hourglass:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_t6vnh"]
 resource_name = "idle_U"
@@ -297,6 +358,18 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hourglass:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [false]
 }
 
@@ -397,6 +470,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hourglass:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rm2v0"]
 resource_name = "walk_R"
@@ -444,6 +529,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hourglass:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qkupr"]
 resource_name = "walk_U"
@@ -490,6 +587,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hourglass:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v4otn"]
@@ -726,6 +835,10 @@ scale_amount_min = 3.0
 scale_amount_max = 3.0
 color = Color(1, 0.4, 0.435294, 1)
 anim_speed_max = 4.0
+
+[node name="hourglass" parent="." instance=ExtResource("9_dnn08")]
+visible = false
+position = Vector2(3.05176e-05, -20)
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="PickableBox" to="." method="_on_pickable_box_area_entered"]

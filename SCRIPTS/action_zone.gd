@@ -6,8 +6,6 @@ class_name action_zone
 
 @onready var action_sprite:Sprite2D = $Node2D/Action
 
-var tween:Tween
-
 enum zone_type {
 	sleep,
 	dig}
@@ -31,10 +29,4 @@ func show_action():
 	action_sprite.visible = true
 
 func hide_action():
-	if tween != null:
-		tween.kill()
 	action_sprite.visible = false
-
-func _on_tree_exiting():
-	if tween != null:
-		tween.kill()

@@ -28,6 +28,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if is_dead: return
+	if Globals.is_splash_screen_open: return
 	get_input()
 	if !can_move: velocity = Vector2.ZERO
 	move_and_slide()
@@ -103,6 +104,7 @@ func hide_ui():
 
 func try_to_action():
 	if current_zone == null: return
+	if get_parent().message_is_open:return
 	match current_zone.type:
 		action_zone.zone_type.sleep:
 			if Globals.has_item(Pickable.resource_type.wood) && Globals.has_item(Pickable.resource_type.food):
@@ -137,6 +139,7 @@ func _on_pickable_box_area_entered(area):
 
 func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return
+	if is_dead: return
 	on_hurt.emit(area.parent.damage_amount)
 	frame_freeze(0.2)
 	start_invulnerability()

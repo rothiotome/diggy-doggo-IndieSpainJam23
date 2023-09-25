@@ -37,10 +37,10 @@ position = Vector2(136, 24)
 position = Vector2(24, 136)
 
 [node name="Obstacle3" parent="." index="12" instance=ExtResource("4_st2y2")]
-position = Vector2(80, 64)
+position = Vector2(136, 40)
 
 [node name="Obstacle4" parent="." index="13" instance=ExtResource("4_st2y2")]
-position = Vector2(80, 96)
+position = Vector2(24, 120)
 
 [editable path="Saw"]
 [editable path="Saw/Saw"]

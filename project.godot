@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="IndieSpainJam23"
+config/name="DiggyDoggo"
 run/main_scene="res://SCENES/world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://SPRITES/ITEMS/game-icon.png"
 
 [autoload]
 
@@ -26,6 +26,7 @@ AudioManager="*res://SCENES/audio_manager.tscn"
 window/size/viewport_width=640
 window/size/viewport_height=800
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [input]
 

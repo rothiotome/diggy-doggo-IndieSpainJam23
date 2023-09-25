@@ -14,10 +14,10 @@ point_count = 3
 [node name="HomeRoom" instance=ExtResource("1_ly6sa")]
 
 [node name="OpenDoorButton" parent="." index="7"]
-position = Vector2(80, 56)
+position = Vector2(104, 80)
 
 [node name="pickable_wood" parent="." index="8" instance=ExtResource("2_tiftf")]
-position = Vector2(80, 103)
+position = Vector2(56, 80)
 
 [node name="Saw" parent="." index="9" instance=ExtResource("3_ynaoy")]
 position = Vector2(24, 48)

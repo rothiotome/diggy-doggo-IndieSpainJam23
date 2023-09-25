@@ -17,12 +17,17 @@ func _ready():
 		sfx_slider.value = sfx_volume
 		_on_sfx_slider_value_changed(sfx_volume)
 		var language = config_file.get_value("SETTINGS", "LANGUAGE")
-		_on_english_pressed() if language == "en" else _on_spanish_pressed()
-		
+		if(language == "en"): 
+			_on_english_pressed()
+		else: 
+			_on_spanish_pressed()
 	else:
 		music_slider.value = 5
 		sfx_slider.value = 5
-		_on_english_pressed()
+		if TranslationServer.get_locale().begins_with("es"):
+			_on_spanish_pressed()
+		else:
+			_on_english_pressed()
 		_on_music_slider_value_changed(5)
 		_on_sfx_slider_value_changed(5)
 
@@ -61,7 +66,10 @@ func _on_spanish_pressed():
 func _on_back_button_pressed():
 	hide()
 
-
 func _on_visibility_changed():
-	if visible: Engine.time_scale = 0
-	else: Engine.time_scale = 1
+	if visible: 
+		Engine.time_scale = 0
+		spanish.grab_focus()
+	else: 
+		Engine.time_scale = 1
+		$"../SplashScreen/VBoxContainer/play".grab_focus()

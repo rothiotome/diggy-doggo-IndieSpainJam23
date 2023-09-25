@@ -10,6 +10,8 @@ var dungeon = {}
 
 @onready var fader = $fader
 
+var message_is_open:bool = false
+
 const room_size:int = 160
 
 func _ready():
@@ -41,6 +43,7 @@ func player_hurt(damage:int):
 		daylight_timer.start(daylight_timer.time_left - damage)
 		canvas_layer.flash_time_left()
 		AudioManager.play_hurt()
+		Globals.number_of_hits += 1
 
 func player_picked_object(type:Pickable.resource_type, succeed):
 	if succeed: 
@@ -59,6 +62,8 @@ func exit_home():
 	daylight_timer.paused = false
 	
 func sleep(area:action_zone):
+	if !Globals.sleep_message_seen: return
+	if message_is_open: return
 	show_message("SLEEPING_ACTION")
 	Globals.remove_item(Pickable.resource_type.food)
 	Globals.remove_item(Pickable.resource_type.wood)
@@ -68,14 +73,21 @@ func sleep(area:action_zone):
 	fader.play("fade_out")
 
 func dig(area:action_zone):
-	show_message("DIGGING_ACTION")
+	if !Globals.dig_message_seen: return
+	if message_is_open: return
+	
 	AudioManager.play_shovel()
 	Globals.remove_item(Pickable.resource_type.shovel)
 	canvas_layer.remove_item(Pickable.resource_type.shovel)
 	player.hide_ui()
 	Globals.hole_size += 1
 	area.do_action()
-
+	if(Globals.hole_size == 5):
+		canvas_layer.show_final_message()
+		player.can_move = false
+	else:
+		show_message("DIGGING_ACTION")
+	
 func action_area_entered(area:action_zone.zone_type):
 	if !Globals.sleep_message_seen and area == action_zone.zone_type.sleep:
 		show_message("BED_MESSAGE")
@@ -96,12 +108,14 @@ func reload_scene():
 func show_message(message:String):
 	player.pause_movement()
 	canvas_layer.localize_and_show_message(message)
+	message_is_open = true
 
 func fade_out_ended():
 	reload_scene()
 
 func on_message_closed():
 	player.restore_movement()
+	message_is_open = false
 
 func _on_daylight_timer_timeout():
 	game_over()

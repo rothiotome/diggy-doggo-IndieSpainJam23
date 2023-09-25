@@ -37,10 +37,10 @@ position = Vector2(24, 24)
 position = Vector2(40, 24)
 
 [node name="Obstacle3" parent="." index="12" instance=ExtResource("4_naw7r")]
-position = Vector2(56, 24)
+position = Vector2(24, 40)
 
 [node name="Obstacle4" parent="." index="13" instance=ExtResource("4_naw7r")]
-position = Vector2(104, 136)
+position = Vector2(136, 120)
 
 [node name="Obstacle5" parent="." index="14" instance=ExtResource("4_naw7r")]
 position = Vector2(120, 136)
@@ -55,10 +55,10 @@ position = Vector2(24, 136)
 position = Vector2(24, 120)
 
 [node name="Obstacle9" parent="." index="18" instance=ExtResource("4_naw7r")]
-position = Vector2(24, 104)
+position = Vector2(40, 136)
 
 [node name="Obstacle10" parent="." index="19" instance=ExtResource("4_naw7r")]
-position = Vector2(104, 24)
+position = Vector2(136, 40)
 
 [node name="Obstacle11" parent="." index="20" instance=ExtResource("4_naw7r")]
 position = Vector2(120, 24)
