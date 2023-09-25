@@ -8,8 +8,6 @@ signal on_message_closed
 
 var message_is_visible = false
 
-var tween:Tween
-
 func _process(_delta):
 	if !message_is_visible: return
 	if Input.is_action_just_pressed("ui_accept"): hide_message()
@@ -17,8 +15,6 @@ func _process(_delta):
 func hide_message():
 	message_border.hide()
 	text.text = ""
-	if tween != null:
-		tween.kill()
 	action_image.visible = false
 	message_is_visible = false
 	on_message_closed.emit()
@@ -31,10 +27,3 @@ func show_message(message:String):
 func can_close_message():
 	message_is_visible = true
 	action_image.visible = true
-	tween = get_tree().create_tween().set_loops()
-	tween.tween_property(action_image, "position", Vector2.DOWN*2, 0.2)
-	tween.tween_property(action_image, "position", Vector2.UP*2, 0.2)
-
-func _on_tree_exiting():
-	if tween != null:
-		tween.kill()

@@ -3,7 +3,7 @@ extends Node2D
 @onready var path_follow_2d = $Path2D/PathFollow2D
 @onready var sprite_2d = $Path2D/PathFollow2D/SawSprite
 
-@export var damage_amount:int = 10
+@export var damage_amount:int = 20
 
 @export var movement_speed:float = 1
 @export var rotation_speed:float = 800

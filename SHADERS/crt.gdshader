@@ -10,20 +10,27 @@ uniform float scalinesOpt :hint_range(0,6) = 0.8;
 uniform float rgbOffsetOpt :hint_range(0,2) = 0.2;
 uniform float horzFuzzOpt :hint_range(0,5) = 0.15;
 
+uniform float curveIntensityA : hint_range(2,5) = 5;
+uniform float curveIntensityB : hint_range(1,2) = 2;
+uniform float curveIntensityC : hint_range(0.2,0.8) = 0.5;
+uniform float curveIntensityD : hint_range(0,2) = 1;
+
+
+
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 vec2 uv_curve(vec2 uv)
 {
-	uv = (uv - 0.5) * 2.0;
+	uv = (uv - curveIntensityC) * curveIntensityB;
 	
 	//You can modify the numbers and try different values
-	uv.x *= 1.0 + pow(abs(uv.y) / 5.0, 2.0);
-	uv.y *= 1.0 + pow(abs(uv.x) / 5.0, 2.0);
+	uv.x *= curveIntensityD + pow(abs(uv.y) / curveIntensityA, curveIntensityB);
+	uv.y *= curveIntensityD + pow(abs(uv.x) / curveIntensityA, curveIntensityB);
 	
 	//The scale part (you can delete it when you want)
 	//uv /= 1.2;
 	
-	uv = (uv/2.0) + 0.5;
+	uv = (uv/curveIntensityB) + curveIntensityC;
 	return uv;
 }
 

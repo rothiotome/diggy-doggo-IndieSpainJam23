@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw7p43bbdrxtn"]
+
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://SCENES/ENEMIES/tiny-saw.tscn" id="1_8th7a"]
+
+[sub_resource type="Curve2D" id="Curve2D_y7dal"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-14.5896, -14.6123, 14.5896, 14.6123, 56, 72, -16.3464, 16.9771, 16.3464, -16.9771, 120, 72, 13.3658, 14.4669, -13.3658, -14.4669, 120, 8, 14.8123, -16.6066, -14.8123, 16.6066, 56, 8, -10.0976, -11.9794, 10.0976, 11.9794, 56, 72)
+}
+point_count = 5
+
+[node name="Saw" instance=ExtResource("1_8th7a")]
+
+[node name="Path2D" parent="." index="0"]
+position = Vector2(-48, 8)
+curve = SubResource("Curve2D_y7dal")
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2(56, 72)

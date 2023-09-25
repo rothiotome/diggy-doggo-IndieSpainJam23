@@ -6,14 +6,13 @@ var dungeon = {}
 @onready var daylight_timer:Timer = $DaylightTimer
 @onready var player:player = $Player
 @onready var canvas_layer:canvas_controller = $CanvasLayer
-@onready var music:AudioManager = $AudioStreamPlayer
+@onready var music:MusicManager = $MusicManager
 
 @onready var fader = $fader
 
 const room_size:int = 160
 
 func _ready():
-	TranslationServer.set_locale(Globals.current_language)
 	dungeon = dungeon_generation.generate(randi_range(-100, 100))
 	load_map()
 	start_day()
@@ -38,11 +37,18 @@ func start_day():
 	
 func player_hurt(damage:int):
 	if(daylight_timer.time_left - damage <= 0): game_over()
-	else: daylight_timer.start(daylight_timer.time_left - damage)
+	else: 
+		daylight_timer.start(daylight_timer.time_left - damage)
+		canvas_layer.flash_time_left()
+		AudioManager.play_hurt()
 
 func player_picked_object(type:Pickable.resource_type, succeed):
-	if succeed: canvas_layer.pick_item(type)
-	else: canvas_layer.flash_item(type)
+	if succeed: 
+		canvas_layer.pick_item(type)
+		AudioManager.play_pick()
+	else: 
+		canvas_layer.flash_item(type)
+		AudioManager.play_wrong()
 	
 func enter_home():
 	music.fade_out()
@@ -63,6 +69,7 @@ func sleep(area:action_zone):
 
 func dig(area:action_zone):
 	show_message("DIGGING_ACTION")
+	AudioManager.play_shovel()
 	Globals.remove_item(Pickable.resource_type.shovel)
 	canvas_layer.remove_item(Pickable.resource_type.shovel)
 	player.hide_ui()
@@ -95,6 +102,6 @@ func fade_out_ended():
 
 func on_message_closed():
 	player.restore_movement()
-	
+
 func _on_daylight_timer_timeout():
 	game_over()

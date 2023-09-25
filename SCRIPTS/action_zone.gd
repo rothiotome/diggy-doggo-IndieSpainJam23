@@ -10,8 +10,7 @@ var tween:Tween
 
 enum zone_type {
 	sleep,
-	dig
-}
+	dig}
 
 func do_action():
 	match type:
@@ -22,7 +21,7 @@ func do_action():
 		zone_type.dig:
 			$hole.update_visuals()
 	hide_action()
-	
+
 func show_action():
 	match type:
 		zone_type.sleep:
@@ -30,10 +29,7 @@ func show_action():
 		zone_type.dig:
 			if !Globals.has_item(Pickable.resource_type.shovel) : return
 	action_sprite.visible = true
-	tween = get_tree().create_tween().set_loops()
-	tween.tween_property(action_sprite, "position", Vector2.DOWN*2, 0.2)
-	tween.tween_property(action_sprite, "position", Vector2.UP*2, 0.2)
-	
+
 func hide_action():
 	if tween != null:
 		tween.kill()

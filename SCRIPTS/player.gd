@@ -12,14 +12,15 @@ class_name player
 @onready var ui:player_ui = $UI
 
 var current_zone:action_zone = null
-var can_move:bool = true
 
 signal on_pick_object 
 signal on_hurt
 signal on_action_area_entered
 
+var can_move:bool = true
 var is_invulnerable:bool = false
 var is_hurting:bool = false
+
 var is_dead:bool = false
 
 func _ready():
@@ -63,6 +64,7 @@ func walk():
 				"walk_R": anim.play("idle_R")
 				"walk_U": anim.play("idle_U")
 				"walk_D": anim.play("idle_D")
+
 func roll():
 	if velocity != Vector2.ZERO: 
 		sprite.flip_h = velocity.x < 0
@@ -77,9 +79,11 @@ func roll():
 			"roll_D": anim.play("idle_D")
 	
 func start_invulnerability():
+	can_move = false
+	is_hurting = true
+	is_invulnerable = true
 	invulnerability_timer.start(0.2)
 	effects_anim.play("blink")
-	is_invulnerable = true
 
 func frame_freeze(duration):
 	Engine.time_scale = 0
@@ -110,15 +114,19 @@ func try_to_action():
 
 func kill():
 	is_dead = true
+	is_invulnerable = true
 	anim.play("death_D")
+
+func play_step():
+	AudioManager.play_step()
 
 func _on_timer_timeout():
 	if is_hurting:
 		is_hurting = false
 		can_move = true
-		invulnerability_timer.start(0.8)
-		return
-	is_invulnerable = false
+		invulnerability_timer.start(1.3)
+	else:
+		is_invulnerable = false
 	
 func _on_pickable_box_area_entered(area):
 	if !Globals.has_item(area.type):
@@ -131,8 +139,6 @@ func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return
 	on_hurt.emit(area.parent.damage_amount)
 	frame_freeze(0.2)
-	can_move = false
-	is_hurting = true
 	start_invulnerability()
 
 func _on_interaction_box_area_entered(area:action_zone):

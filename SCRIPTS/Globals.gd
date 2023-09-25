@@ -6,7 +6,6 @@ var hole_size:int = 0
 
 var consumed_room:Array = []
 var inventory:Array[Pickable.resource_type] = []
-var current_language:String = "es"
 var current_day:int = 0
 
 var sleep_message_seen:bool = false

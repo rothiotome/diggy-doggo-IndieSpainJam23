@@ -18,6 +18,8 @@ var number_of_connections:int = 0
 
 var reward:Pickable
 
+var is_open:bool
+
 func _ready():
 	open_door_button.on_button_pushed.connect(on_button_pushed)
 	reward = get_reward()
@@ -34,6 +36,9 @@ func setup():
 				Vector2.LEFT: left_door.set_door_state(door.door_state.DISABLED)
 
 func on_button_pushed():
+	if is_open: return
+	is_open = true
+	AudioManager.play_door()
 	if reward != null : reward.show_pickable()
 	open_if_enabled(up_door)
 	open_if_enabled(down_door)

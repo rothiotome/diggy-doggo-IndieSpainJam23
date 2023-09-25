@@ -12,6 +12,8 @@ class_name canvas_controller
 
 @onready var message_panel = $message_panel
 
+@onready var time_anim = $ColorRect/time_anim
+
 var start_day_hour:int = 6
 var end_day_hour:int = 20
 
@@ -29,6 +31,10 @@ func _ready():
 	message_panel.connect("on_message_closed", message_closed)
 	for item in Globals.inventory:
 		pick_item(item)	
+
+func _input(event):
+	if event.is_action_released("ui_cancel"):
+		$SettingsMenu.visible = !$SettingsMenu.visible
 
 func pick_item(item:Pickable.resource_type):
 	match item:
@@ -55,7 +61,7 @@ func remove_item(item:Pickable.resource_type):
 
 func localize_and_show_message(message_key:String):
 	message_panel.show_message(tr(message_key))
-	
+
 func show_message(message_key:String):
 	message_panel.show_message(message_key)
 
@@ -79,7 +85,7 @@ func update_time_and_progress():
 
 	time_label.text = "%02d:%02d %s" % [hour_to_display, current_minute, am_pm]
 	progress_bar.value = progress
-	
+
 func flash_item(item:Pickable.resource_type):
 	match item:
 			Pickable.resource_type.food:
@@ -96,3 +102,5 @@ func flash_sprite(texture:TextureRect):
 		tween.tween_property(texture, "position", Vector2(randi_range(-10, 10), randi_range(-10, 10)), 0.05).set_trans(Tween.TRANS_ELASTIC)
 	tween.tween_property(texture, "position", Vector2.ZERO, 0.1)
 
+func flash_time_left():
+	time_anim.play("flash")

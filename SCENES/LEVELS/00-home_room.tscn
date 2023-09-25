@@ -233,6 +233,7 @@ modulate = Color(0.768627, 0.760784, 0.0862745, 1)
 position = Vector2(24, 0)
 sprite_frames = SubResource("SpriteFrames_tivlv")
 animation = &"off"
+autoplay = "off"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sleep_Zone/AnimatedFire" index="0"]
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bypcm767248iv"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_uu5ec"]
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/ENEMIES/saw.tscn" id="2_cmvpp"]
+[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://SCENES/PICKABLES/pickable_food.tscn" id="3_ymmun"]
+[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://SCENES/OBSTACLES/obstacle.tscn" id="4_thtpy"]
+
+[node name="HomeRoom" instance=ExtResource("1_uu5ec")]
+
+[node name="Saw" parent="." index="8" instance=ExtResource("2_cmvpp")]
+position = Vector2(48, 40)
+
+[node name="Saw2" parent="." index="9" instance=ExtResource("2_cmvpp")]
+position = Vector2(112, 120)
+rotation = -3.14159
+
+[node name="Saw3" parent="." index="10" instance=ExtResource("2_cmvpp")]
+position = Vector2(120, 48)
+rotation = 1.5708
+
+[node name="Saw4" parent="." index="11" instance=ExtResource("2_cmvpp")]
+position = Vector2(40, 112)
+rotation = -1.5708
+
+[node name="pickable_food" parent="." index="12" instance=ExtResource("3_ymmun")]
+position = Vector2(80, 112)
+
+[node name="Obstacle" parent="." index="13" instance=ExtResource("4_thtpy")]
+position = Vector2(104, 136)
+
+[node name="Obstacle2" parent="." index="14" instance=ExtResource("4_thtpy")]
+position = Vector2(136, 56)
+
+[node name="Obstacle3" parent="." index="15" instance=ExtResource("4_thtpy")]
+position = Vector2(56, 24)
+
+[node name="Obstacle4" parent="." index="16" instance=ExtResource("4_thtpy")]
+position = Vector2(24, 104)
