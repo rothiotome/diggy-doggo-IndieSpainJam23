@@ -287,8 +287,8 @@ shape = SubResource("CircleShape2D_16v5d")
 [node name="pickable_shovel" parent="." index="12" instance=ExtResource("20_ehogb")]
 position = Vector2(136, 136)
 
-[connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="body_entered" from="Safe-Space" to="." method="_on_safe_space_body_entered"]
+[connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="body_exited" from="Safe-Space" to="." method="_on_safe_space_body_exited"]
 
 [editable path="OpenDoorButton"]
