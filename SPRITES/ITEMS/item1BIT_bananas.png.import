@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j5kjm4f4vyph"
-path="res://.godot/imported/item1BIT_bananas.png-6e10a182dff77beaa95a92aed24caf4e.ctex"
+path="res://.godot/imported/item1BIT_bananas.png-69a6d6e833d5cfdbea9dfa2921c5dd77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_bananas.png"
-dest_files=["res://.godot/imported/item1BIT_bananas.png-6e10a182dff77beaa95a92aed24caf4e.ctex"]
+source_file="res://Sprites/Items/item1BIT_bananas.png"
+dest_files=["res://.godot/imported/item1BIT_bananas.png-69a6d6e833d5cfdbea9dfa2921c5dd77.ctex"]
 
 [params]
 

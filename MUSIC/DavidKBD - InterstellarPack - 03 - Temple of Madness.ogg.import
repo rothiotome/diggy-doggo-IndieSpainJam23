@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://diotfaotuv48k"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg-644b604e690751a1fad55d10561d036e.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg-3b7f04250d95b495419d0f64aa9851c4.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg-644b604e690751a1fad55d10561d036e.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 03 - Temple of Madness.ogg-3b7f04250d95b495419d0f64aa9851c4.oggvorbisstr"]
 
 [params]
 

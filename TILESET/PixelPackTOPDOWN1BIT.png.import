@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn8nt3hawd6sk"
-path="res://.godot/imported/PixelPackTOPDOWN1BIT.png-090b9ab02a76df45f6f87262503a1ba2.ctex"
+path="res://.godot/imported/PixelPackTOPDOWN1BIT.png-164202da9c0620dac943a11ea0357c16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TILESET/PixelPackTOPDOWN1BIT.png"
-dest_files=["res://.godot/imported/PixelPackTOPDOWN1BIT.png-090b9ab02a76df45f6f87262503a1ba2.ctex"]
+source_file="res://Tileset/PixelPackTOPDOWN1BIT.png"
+dest_files=["res://.godot/imported/PixelPackTOPDOWN1BIT.png-164202da9c0620dac943a11ea0357c16.ctex"]
 
 [params]
 

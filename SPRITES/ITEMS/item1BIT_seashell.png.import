@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi8po1s1pi4mp"
-path="res://.godot/imported/item1BIT_seashell.png-bea20dd298701cfa3ab46c86abbff7bc.ctex"
+path="res://.godot/imported/item1BIT_seashell.png-4eb848916c43c1514b88201b44ffb954.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_seashell.png"
-dest_files=["res://.godot/imported/item1BIT_seashell.png-bea20dd298701cfa3ab46c86abbff7bc.ctex"]
+source_file="res://Sprites/Items/item1BIT_seashell.png"
+dest_files=["res://.godot/imported/item1BIT_seashell.png-4eb848916c43c1514b88201b44ffb954.ctex"]
 
 [params]
 

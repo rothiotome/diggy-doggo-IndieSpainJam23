@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmyle567bt7wx"
-path="res://.godot/imported/bigsaw.png-a3af6baa6f88e0f1bb585392e3f8c919.ctex"
+path="res://.godot/imported/bigsaw.png-77930bdbe405114852d839f7183dbb9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/bigsaw.png"
-dest_files=["res://.godot/imported/bigsaw.png-a3af6baa6f88e0f1bb585392e3f8c919.ctex"]
+source_file="res://Sprites/Items/bigsaw.png"
+dest_files=["res://.godot/imported/bigsaw.png-77930bdbe405114852d839f7183dbb9f.ctex"]
 
 [params]
 

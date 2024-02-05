@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://hfpeg87la5wo"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 01 - Interstellar.ogg-2f3a9a743e47007006debc2733854310.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 01 - Interstellar.ogg-71441a92aaeaa36edfc672279575d455.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 01 - Interstellar.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 01 - Interstellar.ogg-2f3a9a743e47007006debc2733854310.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 01 - Interstellar.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 01 - Interstellar.ogg-71441a92aaeaa36edfc672279575d455.oggvorbisstr"]
 
 [params]
 

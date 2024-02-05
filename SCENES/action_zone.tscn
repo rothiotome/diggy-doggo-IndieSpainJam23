@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgwxlu4ih22l3"]
 
-[ext_resource type="Script" path="res://SCRIPTS/action_zone.gd" id="1_tp8v4"]
-[ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://TILESET/action.tres" id="2_gwtu6"]
+[ext_resource type="Script" path="res://Scripts/action_zone.gd" id="1_tp8v4"]
+[ext_resource type="Texture2D" uid="uid://vlnnqf5hpd5t" path="res://Tileset/action.tres" id="2_gwtu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f083w"]
 size = Vector2(50, 50)
@@ -60,7 +60,7 @@ visible = false
 texture = ExtResource("2_gwtu6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_elcg4")
 }
+autoplay = "idle"

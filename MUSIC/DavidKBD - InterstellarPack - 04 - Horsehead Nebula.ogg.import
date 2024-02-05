@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bwii2tmw2rl6b"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg-ac3d0e07cc76132346573f60f728698e.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg-9a76b87b8a8758750d8467c0607d8760.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg-ac3d0e07cc76132346573f60f728698e.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 04 - Horsehead Nebula.ogg-9a76b87b8a8758750d8467c0607d8760.oggvorbisstr"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tu1qy6ue6ek3"
-path="res://.godot/imported/item1BIT_floppydisk.png-ac6e7767167fa0af245f265ab8fae855.ctex"
+path="res://.godot/imported/item1BIT_floppydisk.png-fa8116a093bfe3334cf6964f1f92f3c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_floppydisk.png"
-dest_files=["res://.godot/imported/item1BIT_floppydisk.png-ac6e7767167fa0af245f265ab8fae855.ctex"]
+source_file="res://Sprites/Items/item1BIT_floppydisk.png"
+dest_files=["res://.godot/imported/item1BIT_floppydisk.png-fa8116a093bfe3334cf6964f1f92f3c1.ctex"]
 
 [params]
 

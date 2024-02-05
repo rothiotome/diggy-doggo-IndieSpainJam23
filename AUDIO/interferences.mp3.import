@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://m3wi4ysqcicv"
-path="res://.godot/imported/interferences.mp3-b602ed8ee98188508c52914b9226e5a2.mp3str"
+path="res://.godot/imported/interferences.mp3-299e1656c14123475978b25c54173bde.mp3str"
 
 [deps]
 
-source_file="res://AUDIO/interferences.mp3"
-dest_files=["res://.godot/imported/interferences.mp3-b602ed8ee98188508c52914b9226e5a2.mp3str"]
+source_file="res://Audio/interferences.mp3"
+dest_files=["res://.godot/imported/interferences.mp3-299e1656c14123475978b25c54173bde.mp3str"]
 
 [params]
 

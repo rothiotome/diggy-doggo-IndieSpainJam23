@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lwy748jwh4ff"
-path="res://.godot/imported/item1BIT_coin.png-09fd0ff58363be689a09d2eabf454237.ctex"
+path="res://.godot/imported/item1BIT_coin.png-57b7d33d1eca8808355c60c2a46257f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_coin.png"
-dest_files=["res://.godot/imported/item1BIT_coin.png-09fd0ff58363be689a09d2eabf454237.ctex"]
+source_file="res://Sprites/Items/item1BIT_coin.png"
+dest_files=["res://.godot/imported/item1BIT_coin.png-57b7d33d1eca8808355c60c2a46257f0.ctex"]
 
 [params]
 

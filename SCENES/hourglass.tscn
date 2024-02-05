@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://deorawfpj56s8"]
 
-[ext_resource type="Texture2D" uid="uid://dv0ksxg31suk5" path="res://TILESET/hourglass.tres" id="1_nivl1"]
-[ext_resource type="Texture2D" uid="uid://dww0gho7vkt6d" path="res://TILESET/menos.tres" id="2_okjin"]
+[ext_resource type="Texture2D" uid="uid://dv0ksxg31suk5" path="res://Tileset/hourglass.tres" id="1_nivl1"]
+[ext_resource type="Texture2D" uid="uid://dww0gho7vkt6d" path="res://Tileset/menos.tres" id="2_okjin"]
 
 [node name="hourglass" type="Sprite2D"]
 modulate = Color(1, 0.4, 0.435294, 1)

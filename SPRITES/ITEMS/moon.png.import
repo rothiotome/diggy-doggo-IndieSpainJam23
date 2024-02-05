@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://duoofrnk02de2"
-path="res://.godot/imported/moon.png-79a127ffa954cf661021a00c0d7a6206.ctex"
+path="res://.godot/imported/moon.png-b910cbb8c29e70dd659df9b379c8dc34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/moon.png"
-dest_files=["res://.godot/imported/moon.png-79a127ffa954cf661021a00c0d7a6206.ctex"]
+source_file="res://Sprites/Items/moon.png"
+dest_files=["res://.godot/imported/moon.png-b910cbb8c29e70dd659df9b379c8dc34.ctex"]
 
 [params]
 

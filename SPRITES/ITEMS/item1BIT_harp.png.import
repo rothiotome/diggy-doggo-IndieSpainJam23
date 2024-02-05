@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt5h88rwukuc5"
-path="res://.godot/imported/item1BIT_harp.png-76fec52ec8276430409fbad89c54b58c.ctex"
+path="res://.godot/imported/item1BIT_harp.png-d755624de32f799318991cc98e57fcdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_harp.png"
-dest_files=["res://.godot/imported/item1BIT_harp.png-76fec52ec8276430409fbad89c54b58c.ctex"]
+source_file="res://Sprites/Items/item1BIT_harp.png"
+dest_files=["res://.godot/imported/item1BIT_harp.png-d755624de32f799318991cc98e57fcdc.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpvfb2amwlgto"
-path="res://.godot/imported/1bit 16px icons part-2.png-fc1dbf599ad48984a04702fe8ddd6d32.ctex"
+path="res://.godot/imported/1bit 16px icons part-2.png-f735aaf856afaaf73910ac11ac763a72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TILESET/1bit 16px icons part-2.png"
-dest_files=["res://.godot/imported/1bit 16px icons part-2.png-fc1dbf599ad48984a04702fe8ddd6d32.ctex"]
+source_file="res://Tileset/1bit 16px icons part-2.png"
+dest_files=["res://.godot/imported/1bit 16px icons part-2.png-f735aaf856afaaf73910ac11ac763a72.ctex"]
 
 [params]
 

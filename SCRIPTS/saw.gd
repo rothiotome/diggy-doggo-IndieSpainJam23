@@ -1,16 +1,11 @@
-extends Node2D
+extends Enemy
 
-@onready var path_follow_2d = $Path2D/PathFollow2D
-@onready var sprite_2d = $Path2D/PathFollow2D/SawSprite
-
-@export var damage_amount:int = 20
+@onready var path_follow_2d = %PathFollow2D
+@onready var saw_sprite = %SawSprite
 
 @export var movement_speed:float = 1
 @export var rotation_speed:float = 800
 
-func _ready():
-	$Path2D/PathFollow2D/SawSprite/Area2D.parent = self
-
 func _process(delta):
-	path_follow_2d.progress_ratio += delta*movement_speed
-	sprite_2d.rotation_degrees += delta*rotation_speed
+	path_follow_2d.progress_ratio += delta * movement_speed
+	saw_sprite.rotation_degrees += delta * rotation_speed

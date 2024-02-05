@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4vm5pvoia7cv"]
 
-[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_u7o0s"]
-[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://SCENES/OBSTACLES/obstacle.tscn" id="2_u5vi4"]
-[ext_resource type="PackedScene" uid="uid://dw7p43bbdrxtn" path="res://SCENES/ENEMIES/tiny-circular-saw.tscn" id="3_2u1le"]
-[ext_resource type="PackedScene" uid="uid://c77jag8ytsik0" path="res://SCENES/PICKABLES/pickable_wood.tscn" id="4_qk02v"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_u7o0s"]
+[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://Nodes/Obstacles/obstacle.tscn" id="2_u5vi4"]
+[ext_resource type="PackedScene" uid="uid://dw7p43bbdrxtn" path="res://Nodes/Enemies/tiny-circular-saw.tscn" id="3_2u1le"]
+[ext_resource type="PackedScene" uid="uid://c77jag8ytsik0" path="res://Nodes/Pickables/pickable_wood.tscn" id="4_qk02v"]
 
 [sub_resource type="Curve2D" id="Curve2D_8mhla"]
 resource_local_to_scene = true

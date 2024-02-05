@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjjuwthc5t8g0"]
+
+[ext_resource type="Texture2D" uid="uid://5lihholclpu7" path="res://Tileset/obstacle.tres" id="1_601qu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8kg"]
+size = Vector2(16, 16)
+
+[node name="Obstacle" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ls8kg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_601qu")

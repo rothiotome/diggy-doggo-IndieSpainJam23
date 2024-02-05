@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkix8aaefcba1"]
 
-[ext_resource type="Script" path="res://SCRIPTS/room.gd" id="1_aq22n"]
-[ext_resource type="Texture2D" uid="uid://dlwbyxv5a0lhc" path="res://TILESET/monochrome_tilemap_transparent_packed.png" id="2_3amnu"]
-[ext_resource type="PackedScene" uid="uid://bl6q3ostqr6q" path="res://SCENES/door.tscn" id="3_dbp7y"]
-[ext_resource type="PackedScene" uid="uid://bm3lmc63r3lrf" path="res://SCENES/open_door_button.tscn" id="4_5ovgp"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_aq22n"]
+[ext_resource type="Texture2D" uid="uid://dlwbyxv5a0lhc" path="res://Tileset/monochrome_tilemap_transparent_packed.png" id="2_3amnu"]
+[ext_resource type="PackedScene" uid="uid://bl6q3ostqr6q" path="res://Scenes/door.tscn" id="3_dbp7y"]
+[ext_resource type="PackedScene" uid="uid://bm3lmc63r3lrf" path="res://Scenes/open_door_button.tscn" id="4_5ovgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qadqn"]
 size = Vector2(144, 144)
@@ -776,12 +776,6 @@ shape = SubResource("RectangleShape2D_qadqn")
 tile_set = SubResource("TileSet_q5eb5")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 524288, 10, 65536, 524288, 11, 131072, 524288, 11, 196608, 524288, 11, 262144, 524288, 11, 327680, 524288, 11, 393216, 524288, 11, 458752, 524288, 11, 524288, 524288, 11, 589824, 524288, 12, 589825, 589824, 12, 589826, 589824, 12, 589827, 589824, 12, 589828, 589824, 12, 589829, 589824, 12, 589830, 589824, 12, 589831, 589824, 12, 589832, 589824, 12, 589833, 655360, 12, 524297, 655360, 11, 458761, 655360, 11, 393225, 655360, 11, 327689, 655360, 11, 262153, 655360, 11, 196617, 655360, 11, 131081, 655360, 11, 65545, 655360, 11, 9, 655360, 10, 8, 589824, 10, 7, 589824, 10, 6, 589824, 10, 3, 589824, 10, 2, 589824, 10, 1, 589824, 10, 4, 589824, 10, 5, 589824, 10, 65539, 262144, 2, 65538, 327680, 2, 65537, 327680, 2, 196609, 65536, 2, 262145, 196608, 2, 393217, 131072, 2, 524289, 262144, 2, 393218, 262144, 2, 327682, 327680, 2, 262146, 196608, 2, 196610, 131072, 2, 196611, 196608, 2, 458755, 262144, 2, 131077, 327680, 2, 65541, 65536, 2, 524293, 196608, 2, 458759, 65536, 2, 327687, 131072, 2, 262151, 327680, 2, 65543, 196608, 2, 196616, 327680, 2, 262152, 196608, 2, 458760, 327680, 2, 524296, 131072, 2)
-layer_1/name = ""
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

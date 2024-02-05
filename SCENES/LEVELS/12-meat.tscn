@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://2aff35c2hl1j"]
 
-[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_vta8o"]
-[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://SCENES/PICKABLES/pickable_food.tscn" id="2_ltk4x"]
-[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://SCENES/OBSTACLES/obstacle.tscn" id="3_7s3is"]
-[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://SCENES/ENEMIES/tiny-saw.tscn" id="4_06pq3"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_vta8o"]
+[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://Nodes/Pickables/pickable_food.tscn" id="2_ltk4x"]
+[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://Nodes/Obstacles/obstacle.tscn" id="3_7s3is"]
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://Nodes/Enemies/tiny-saw.tscn" id="4_06pq3"]
 
 [sub_resource type="Curve2D" id="Curve2D_ejxj3"]
 resource_local_to_scene = true

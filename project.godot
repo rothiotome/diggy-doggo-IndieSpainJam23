@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="DiggyDoggo"
-run/main_scene="res://SCENES/world.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://SPRITES/ITEMS/game-icon.png"
+run/main_scene="res://Scenes/world.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://game-icon.png"
 
 [autoload]
 
-dungeon_generation="*res://SCRIPTS/dungeon_generation.gd"
-Globals="*res://SCRIPTS/Globals.gd"
-AudioManager="*res://SCENES/audio_manager.tscn"
+dungeon_generation="*res://Scripts/dungeon_generation.gd"
+Globals="*res://Scripts/Globals.gd"
+AudioManager="*res://Scenes/audio_manager.tscn"
 
 [display]
 
@@ -85,7 +85,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://TRANSLATIONS/text.en.translation", "res://TRANSLATIONS/text.es.translation")
+locale/translations=PackedStringArray("res://Locale/text.en.translation", "res://Locale/text.es.translation")
 
 [layer_names]
 

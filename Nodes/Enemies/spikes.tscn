@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw6gvef1rhq6k"]
+
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="1_opu6y"]
+[ext_resource type="Texture2D" uid="uid://cvclghebh1hnf" path="res://Tileset/spikes.tres" id="2_ifilt"]
+[ext_resource type="Script" path="res://Scripts/damager.gd" id="3_u5bu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pntkd"]
+size = Vector2(12, 12)
+
+[node name="spikes" type="Node2D"]
+script = ExtResource("1_opu6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.4, 0.435294, 1)
+texture = ExtResource("2_ifilt")
+hframes = 2
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_u5bu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_pntkd")

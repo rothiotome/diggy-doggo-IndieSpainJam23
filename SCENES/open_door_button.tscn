@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bm3lmc63r3lrf"]
 
-[ext_resource type="Script" path="res://SCRIPTS/OpenDoorButton.gd" id="1_l624j"]
-[ext_resource type="Texture2D" uid="uid://dp1yq0jjyxhqi" path="res://TILESET/button-pushed.tres" id="2_o0l48"]
-[ext_resource type="Texture2D" uid="uid://b6m8kktl13s7m" path="res://TILESET/button-released.tres" id="3_8m7yi"]
+[ext_resource type="Script" path="res://Scripts/OpenDoorButton.gd" id="1_l624j"]
+[ext_resource type="Texture2D" uid="uid://dp1yq0jjyxhqi" path="res://Tileset/button-pushed.tres" id="2_o0l48"]
+[ext_resource type="Texture2D" uid="uid://b6m8kktl13s7m" path="res://Tileset/button-released.tres" id="3_8m7yi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lfbg"]
 size = Vector2(16, 16)

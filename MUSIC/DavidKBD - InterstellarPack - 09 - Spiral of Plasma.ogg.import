@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cv2ip2oxkg4ln"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg-4dd17681d2f032103f09c778128f7aec.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg-66dab0f0b52b2b012faa7a0c6e68ad9b.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg-4dd17681d2f032103f09c778128f7aec.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 09 - Spiral of Plasma.ogg-66dab0f0b52b2b012faa7a0c6e68ad9b.oggvorbisstr"]
 
 [params]
 

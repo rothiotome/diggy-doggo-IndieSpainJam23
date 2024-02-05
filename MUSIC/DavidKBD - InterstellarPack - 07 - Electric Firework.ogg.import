@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://b7jij0gj5upg8"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg-52614f572171df14d9e00c0d154258d3.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg-1c5e95c5d1100f7a2552053e65d55176.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg-52614f572171df14d9e00c0d154258d3.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 07 - Electric Firework.ogg-1c5e95c5d1100f7a2552053e65d55176.oggvorbisstr"]
 
 [params]
 

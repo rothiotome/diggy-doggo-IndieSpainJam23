@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c77jag8ytsik0"]
+
+[ext_resource type="PackedScene" uid="uid://dnif8l2awphcj" path="res://Nodes/Pickables/pickable_base.tscn" id="1_2ab3t"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://Sprites/Items/wood.png" id="2_860em"]
+
+[node name="pickable_wood" instance=ExtResource("1_2ab3t")]
+type = 1
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_860em")

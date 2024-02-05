@@ -32,3 +32,4 @@ func reset():
 	inventory.clear()
 	sleep_message_seen = false
 	dig_message_seen = false
+

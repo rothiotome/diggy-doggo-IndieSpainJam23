@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdexo1sn046pu"
-path="res://.godot/imported/item1BIT_feather.png-28216222bfb1413e16a3283df25cdbd0.ctex"
+path="res://.godot/imported/item1BIT_feather.png-ff7eb13a3d24c432bd0f3f2daaedb765.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_feather.png"
-dest_files=["res://.godot/imported/item1BIT_feather.png-28216222bfb1413e16a3283df25cdbd0.ctex"]
+source_file="res://Sprites/Items/item1BIT_feather.png"
+dest_files=["res://.godot/imported/item1BIT_feather.png-ff7eb13a3d24c432bd0f3f2daaedb765.ctex"]
 
 [params]
 

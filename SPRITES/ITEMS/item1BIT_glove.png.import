@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b12dsx0taj1m3"
-path="res://.godot/imported/item1BIT_glove.png-fd9dd782cd9b090bb3d5c79577569cc0.ctex"
+path="res://.godot/imported/item1BIT_glove.png-9d394c60d47b6c0b86506a2225185f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_glove.png"
-dest_files=["res://.godot/imported/item1BIT_glove.png-fd9dd782cd9b090bb3d5c79577569cc0.ctex"]
+source_file="res://Sprites/Items/item1BIT_glove.png"
+dest_files=["res://.godot/imported/item1BIT_glove.png-9d394c60d47b6c0b86506a2225185f85.ctex"]
 
 [params]
 

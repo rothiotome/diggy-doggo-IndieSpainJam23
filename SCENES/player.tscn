@@ -1,14 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://de0pmnn81f0e"]
 
-[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_5jcwf"]
-[ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://SPRITES/HEROS/spritesheets/doggoSpriteSheet.png" id="2_2gpcj"]
-[ext_resource type="Script" path="res://SCRIPTS/player_UI.gd" id="3_fo4ap"]
-[ext_resource type="Texture2D" uid="uid://xq8ajmmmcjcv" path="res://TILESET/thought.tres" id="3_fwhsp"]
-[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="4_x7g4e"]
-[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="5_vj8aq"]
-[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="6_5lx7v"]
-[ext_resource type="Texture2D" uid="uid://c65sv6o7qatr8" path="res://SPRITES/HEROS/spritesheets/particles.png" id="8_u2wtp"]
-[ext_resource type="PackedScene" uid="uid://deorawfpj56s8" path="res://SCENES/hourglass.tscn" id="9_dnn08"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5jcwf"]
+[ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://Sprites/Doggo/doggoSpriteSheet.png" id="2_2gpcj"]
+[ext_resource type="Script" path="res://Scripts/player_UI.gd" id="3_fo4ap"]
+[ext_resource type="Texture2D" uid="uid://xq8ajmmmcjcv" path="res://Tileset/thought.tres" id="3_fwhsp"]
+[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://Tileset/meat.png" id="4_x7g4e"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://Sprites/Items/wood.png" id="5_vj8aq"]
+[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://Sprites/Items/item1BIT_shovel.png" id="6_5lx7v"]
+[ext_resource type="Texture2D" uid="uid://c65sv6o7qatr8" path="res://Sprites/Doggo/particles.png" id="8_umynj"]
+[ext_resource type="PackedScene" uid="uid://deorawfpj56s8" path="res://Scenes/hourglass.tscn" id="9_dnn08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5whl"]
 radius = 4.0
@@ -771,16 +771,15 @@ offset = Vector2(8, 8)
 flip_h = true
 
 [node name="food" type="Sprite2D" parent="UI/sleep_thoughts/bubble-wood"]
-position = Vector2(9.16667, 7.5)
+position = Vector2(11.6667, 7.5)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_vj8aq")
-flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/sleep_thoughts"]
-autoplay = "thoughts"
 libraries = {
 "": SubResource("AnimationLibrary_4llvt")
 }
+autoplay = "thoughts"
 
 [node name="dig_thoughts" type="Node2D" parent="UI"]
 
@@ -805,7 +804,7 @@ emitting = false
 amount = 3
 lifetime = 0.2
 explosiveness = 0.75
-texture = ExtResource("8_u2wtp")
+texture = ExtResource("8_umynj")
 emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector2(0, -1)
@@ -823,7 +822,7 @@ position = Vector2(0, -6)
 emitting = false
 one_shot = true
 explosiveness = 0.75
-texture = ExtResource("8_u2wtp")
+texture = ExtResource("8_umynj")
 emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector2(0, -1)

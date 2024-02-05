@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name player_ui
+class_name PlayerUI
 
 @export var color_red:Color = Color("ff666f")
 @export var color_green:Color = Color("2dbd90")

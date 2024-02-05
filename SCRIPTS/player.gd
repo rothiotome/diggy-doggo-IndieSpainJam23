@@ -1,49 +1,51 @@
+class_name Player
+
 extends CharacterBody2D
 
-class_name player
+signal on_pick_object 
+signal on_hurt
+signal on_action_area_entered
 
-@export var velocity_multiplier:float = 600.0
+@export var velocity_multiplier:= 600.0
 
 @onready var effects_anim = $Effects
 @onready var invulnerability_timer:Timer = $InvulnerabilityTimer
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite
 
-@onready var ui:player_ui = $UI
+@onready var ui: PlayerUI = $UI
 
 var current_zone:action_zone = null
 
-signal on_pick_object 
-signal on_hurt
-signal on_action_area_entered
+var can_move: bool = true
+var is_invulnerable: bool = false
+var is_hurting :bool = false
 
-var can_move:bool = true
-var is_invulnerable:bool = false
-var is_hurting:bool = false
-
-var is_dead:bool = false
-
-func _ready():
-	Engine.time_scale = 1
+var is_dead: bool = false
 
 func _physics_process(_delta):
 	if is_dead: return
 	if Globals.is_splash_screen_open: return
 	get_input()
-	if !can_move: velocity = Vector2.ZERO
+	if not can_move: velocity = Vector2.ZERO
 	move_and_slide()
 	animate()
 
+
 func get_input():
+	
+	if Globals.is_splash_screen_open: return
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * velocity_multiplier
 	
 	if Input.is_action_just_pressed("ui_accept"): try_to_action()
 
+
 func animate():
 	walk()
 	#roll()
-	
+
+
 func walk():
 	if velocity != Vector2.ZERO: 
 		sprite.flip_h = velocity.x < 0
@@ -66,6 +68,7 @@ func walk():
 				"walk_U": anim.play("idle_U")
 				"walk_D": anim.play("idle_D")
 
+
 func roll():
 	if velocity != Vector2.ZERO: 
 		sprite.flip_h = velocity.x < 0
@@ -78,7 +81,8 @@ func roll():
 			"roll_R": anim.play("idle_R")
 			"roll_U": anim.play("idle_U")
 			"roll_D": anim.play("idle_D")
-	
+
+
 func start_invulnerability():
 	can_move = false
 	is_hurting = true
@@ -86,21 +90,26 @@ func start_invulnerability():
 	invulnerability_timer.start(0.2)
 	effects_anim.play("blink")
 
+
 func frame_freeze(duration):
 	Engine.time_scale = 0
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1
+
 	
 func restore_movement():
 	can_move = true
-	
+
+
 func pause_movement():
 	can_move = false
+
 
 func hide_ui():
 	current_zone.hide_action()
 	ui.hide_dig_stuff()
 	ui.hide_sleep_stuff()
+
 
 func try_to_action():
 	if current_zone == null: return
@@ -114,13 +123,16 @@ func try_to_action():
 			if Globals.has_item(Pickable.resource_type.shovel):
 				get_parent().dig(current_zone)
 
+
 func kill():
 	is_dead = true
 	is_invulnerable = true
 	anim.play("death_D")
 
+
 func play_step():
 	AudioManager.play_step()
+
 
 func _on_timer_timeout():
 	if is_hurting:
@@ -129,7 +141,8 @@ func _on_timer_timeout():
 		invulnerability_timer.start(1.3)
 	else:
 		is_invulnerable = false
-	
+
+
 func _on_pickable_box_area_entered(area):
 	if !Globals.has_item(area.type):
 		area.pick()
@@ -137,12 +150,14 @@ func _on_pickable_box_area_entered(area):
 	else:
 		on_pick_object.emit(area.type, false)
 
+
 func _on_hurt_box_area_entered(area):
 	if is_invulnerable: return
 	if is_dead: return
 	on_hurt.emit(area.parent.damage_amount)
 	frame_freeze(0.2)
 	start_invulnerability()
+
 
 func _on_interaction_box_area_entered(area:action_zone):
 	match area.type:
@@ -153,7 +168,8 @@ func _on_interaction_box_area_entered(area:action_zone):
 	area.show_action()
 	on_action_area_entered.emit(area.type)
 	current_zone = area
-	
+
+
 func _on_interaction_box_area_exited(area):
 	match area.type:
 		action_zone.zone_type.sleep:

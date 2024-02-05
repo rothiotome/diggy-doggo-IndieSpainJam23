@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://hw81qp27ctxh"]
 
-[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_ehog3"]
-[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/ENEMIES/saw.tscn" id="2_rcugg"]
-[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://SCENES/PICKABLES/pickable_shovel.tscn" id="3_sp8yc"]
-[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://SCENES/ENEMIES/tiny-saw.tscn" id="4_3dcgk"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_ehog3"]
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://Nodes/Enemies/saw.tscn" id="2_rcugg"]
+[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://Nodes/Pickables/pickable_shovel.tscn" id="3_sp8yc"]
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://Nodes/Enemies/tiny-saw.tscn" id="4_3dcgk"]
 
 [sub_resource type="Curve2D" id="Curve2D_0pq2s"]
 resource_local_to_scene = true

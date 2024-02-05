@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://clqierfmf2r0p"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg-6ae583458315951e522027141856d0b8.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg-deb2434eef9121a01091704a1783794c.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg-6ae583458315951e522027141856d0b8.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 06 - Hope on the Horizon.ogg-deb2434eef9121a01091704a1783794c.oggvorbisstr"]
 
 [params]
 

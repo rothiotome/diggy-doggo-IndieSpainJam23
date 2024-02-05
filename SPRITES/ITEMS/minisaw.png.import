@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6ulmho1dfor2"
-path="res://.godot/imported/minisaw.png-8a0074c889298dfc64bf8b7484375d9a.ctex"
+path="res://.godot/imported/minisaw.png-6fbe7d3a1013e3bc69c982a2c000cd02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/minisaw.png"
-dest_files=["res://.godot/imported/minisaw.png-8a0074c889298dfc64bf8b7484375d9a.ctex"]
+source_file="res://Sprites/Items/minisaw.png"
+dest_files=["res://.godot/imported/minisaw.png-6fbe7d3a1013e3bc69c982a2c000cd02.ctex"]
 
 [params]
 

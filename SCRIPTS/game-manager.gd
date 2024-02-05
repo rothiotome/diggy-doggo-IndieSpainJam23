@@ -1,12 +1,14 @@
 extends Node2D
 
-var dungeon = {}
+var dungeon: Dictionary = {}
 
 @onready var map_node:Node2D = $MapNode
 @onready var daylight_timer:Timer = $DaylightTimer
-@onready var player:player = $Player
+@onready var player: Player = $Player
 @onready var canvas_layer:canvas_controller = $CanvasLayer
 @onready var music:MusicManager = $MusicManager
+
+@onready var camera = %Camera2D
 
 @onready var fader = $fader
 
@@ -28,6 +30,7 @@ func load_map():
 		map_node.add_child(dungeon[i])
 		dungeon[i].position = i * room_size
 		dungeon[i].setup()
+		dungeon[i].on_player_enter.connect(move_camera_to_pos)
 		var c_rooms = dungeon.get(i).connected_rooms
 
 func start_day():
@@ -112,6 +115,11 @@ func show_message(message:String):
 
 func fade_out_ended():
 	reload_scene()
+	
+func move_camera_to_pos(pos):
+	player.can_move = false
+	await %Camera2D.move(pos)
+	player.can_move = true
 
 func on_message_closed():
 	player.restore_movement()

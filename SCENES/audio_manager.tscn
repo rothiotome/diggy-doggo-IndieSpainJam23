@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://chydejp2cf04m"]
 
-[ext_resource type="Script" path="res://SCRIPTS/AudioManager.gd" id="1_smv2x"]
-[ext_resource type="AudioStream" uid="uid://dqss57b3oplh0" path="res://AUDIO/footStep-2.wav" id="2_e1wkf"]
-[ext_resource type="AudioStream" uid="uid://cg1k5s35yaw64" path="res://AUDIO/door.wav" id="3_rawrh"]
-[ext_resource type="AudioStream" uid="uid://m3wi4ysqcicv" path="res://AUDIO/interferences.mp3" id="4_6uw2b"]
-[ext_resource type="AudioStream" uid="uid://bk1y86pqnnusl" path="res://AUDIO/pick.wav" id="5_db02v"]
-[ext_resource type="AudioStream" uid="uid://bolh7l56xk8pn" path="res://AUDIO/punch1.wav" id="6_qacbt"]
-[ext_resource type="AudioStream" uid="uid://dfcu3fyyyx5tb" path="res://AUDIO/wrong.wav" id="7_amm7h"]
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="1_smv2x"]
+[ext_resource type="AudioStream" uid="uid://dqss57b3oplh0" path="res://Audio/footStep_2.wav" id="2_e1wkf"]
+[ext_resource type="AudioStream" uid="uid://cg1k5s35yaw64" path="res://Audio/door.wav" id="3_rawrh"]
+[ext_resource type="AudioStream" uid="uid://m3wi4ysqcicv" path="res://Audio/interferences.mp3" id="4_6uw2b"]
+[ext_resource type="AudioStream" uid="uid://bk1y86pqnnusl" path="res://Audio/pick.wav" id="5_db02v"]
+[ext_resource type="AudioStream" uid="uid://bolh7l56xk8pn" path="res://Audio/punch1.wav" id="6_qacbt"]
+[ext_resource type="AudioStream" uid="uid://dfcu3fyyyx5tb" path="res://Audio/wrong.wav" id="7_amm7h"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_smv2x")

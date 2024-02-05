@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cn5spiyal8jno"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg-75e8aac9532b80ca45e17fdbc9678407.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg-e33ae1677590607aae2a26038c0350d2.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg-75e8aac9532b80ca45e17fdbc9678407.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 08 - Synth Kobra.ogg-e33ae1677590607aae2a26038c0350d2.oggvorbisstr"]
 
 [params]
 

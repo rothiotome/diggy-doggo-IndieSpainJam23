@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bypcm767248iv"]
 
-[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://SCENES/base_room.tscn" id="1_uu5ec"]
-[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://SCENES/ENEMIES/saw.tscn" id="2_cmvpp"]
-[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://SCENES/PICKABLES/pickable_food.tscn" id="3_ymmun"]
-[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://SCENES/OBSTACLES/obstacle.tscn" id="4_thtpy"]
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_uu5ec"]
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://Nodes/Enemies/saw.tscn" id="2_cmvpp"]
+[ext_resource type="PackedScene" uid="uid://c8e1mjivc4yph" path="res://Nodes/Pickables/pickable_food.tscn" id="3_ymmun"]
+[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://Nodes/Obstacles/obstacle.tscn" id="4_thtpy"]
 
 [node name="HomeRoom" instance=ExtResource("1_uu5ec")]
 

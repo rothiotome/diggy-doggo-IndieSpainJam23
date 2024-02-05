@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://qo18w5b8ecoc"]
+
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://Nodes/Enemies/saw.tscn" id="1_qe0cf"]
+[ext_resource type="Texture2D" uid="uid://c6ulmho1dfor2" path="res://Sprites/Items/minisaw.png" id="2_4xqlr"]
+
+[sub_resource type="Curve2D" id="Curve2D_h8117"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88)
+}
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb6j0"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brc33"]
+radius = 3.0
+
+[node name="Saw" instance=ExtResource("1_qe0cf")]
+rotation_speed = 1500.0
+
+[node name="Path2D" parent="." index="0"]
+curve = SubResource("Curve2D_h8117")
+
+[node name="SawSprite" parent="Path2D/PathFollow2D" index="0"]
+texture = ExtResource("2_4xqlr")
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/SawSprite/Area2D" index="0"]
+shape = SubResource("CircleShape2D_vb6j0")
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/SawSprite/StaticBody2D" index="0"]
+shape = SubResource("CircleShape2D_brc33")

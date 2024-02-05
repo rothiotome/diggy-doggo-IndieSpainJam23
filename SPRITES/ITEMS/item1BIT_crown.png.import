@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo3oaqtvbglwb"
-path="res://.godot/imported/item1BIT_crown.png-787e2a1094ebfaca72eb38754fa8d8ae.ctex"
+path="res://.godot/imported/item1BIT_crown.png-792c4505ee7740ab0f4992b3fa39d2a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPRITES/ITEMS/item1BIT_crown.png"
-dest_files=["res://.godot/imported/item1BIT_crown.png-787e2a1094ebfaca72eb38754fa8d8ae.ctex"]
+source_file="res://Sprites/Items/item1BIT_crown.png"
+dest_files=["res://.godot/imported/item1BIT_crown.png-792c4505ee7740ab0f4992b3fa39d2a1.ctex"]
 
 [params]
 

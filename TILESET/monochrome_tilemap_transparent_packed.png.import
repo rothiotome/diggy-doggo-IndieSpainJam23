@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlwbyxv5a0lhc"
-path="res://.godot/imported/monochrome_tilemap_transparent_packed.png-379beb37c4aa085679ad6d2614a08f13.ctex"
+path="res://.godot/imported/monochrome_tilemap_transparent_packed.png-bf90bffd3a52bd0d4b5a8056df892ef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TILESET/monochrome_tilemap_transparent_packed.png"
-dest_files=["res://.godot/imported/monochrome_tilemap_transparent_packed.png-379beb37c4aa085679ad6d2614a08f13.ctex"]
+source_file="res://Tileset/monochrome_tilemap_transparent_packed.png"
+dest_files=["res://.godot/imported/monochrome_tilemap_transparent_packed.png-bf90bffd3a52bd0d4b5a8056df892ef2.ctex"]
 
 [params]
 

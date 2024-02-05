@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv5r5wwjufsy4"]
+
+[ext_resource type="Script" path="res://Scripts/saw.gd" id="1_unycl"]
+[ext_resource type="Texture2D" uid="uid://cmyle567bt7wx" path="res://Sprites/Items/bigsaw.png" id="2_fdxq1"]
+[ext_resource type="Script" path="res://Scripts/damager.gd" id="3_23w6n"]
+
+[sub_resource type="Curve2D" id="Curve2D_dl0mw"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88)
+}
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pnqm"]
+radius = 12.1655
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_evyax"]
+radius = 6.0
+
+[node name="Saw" type="Node2D"]
+script = ExtResource("1_unycl")
+movement_speed = 0.8
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dl0mw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(0, 88)
+rotation = -1.5708
+rotates = false
+
+[node name="SawSprite" type="Sprite2D" parent="Path2D/PathFollow2D"]
+unique_name_in_owner = true
+modulate = Color(1, 0.4, 0.435294, 1)
+z_index = 100
+texture = ExtResource("2_fdxq1")
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/SawSprite"]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_23w6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/SawSprite/Area2D"]
+shape = SubResource("CircleShape2D_7pnqm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Path2D/PathFollow2D/SawSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/SawSprite/StaticBody2D"]
+shape = SubResource("CircleShape2D_evyax")
+debug_color = Color(0.941176, 0.611765, 0.854902, 0.419608)

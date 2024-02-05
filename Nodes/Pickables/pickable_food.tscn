@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8e1mjivc4yph"]
+
+[ext_resource type="PackedScene" uid="uid://dnif8l2awphcj" path="res://Nodes/Pickables/pickable_base.tscn" id="1_1on28"]
+
+[node name="pickable_food" instance=ExtResource("1_1on28")]

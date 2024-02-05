@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://d2wjdf685vkfi"
-path="res://.godot/imported/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg-e1f344598132f1c992c5844ae7a5ba85.oggvorbisstr"
+path="res://.godot/imported/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg-9e98371b47867d49f9de6c15c012a74a.oggvorbisstr"
 
 [deps]
 
-source_file="res://MUSIC/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg"
-dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg-e1f344598132f1c992c5844ae7a5ba85.oggvorbisstr"]
+source_file="res://Music/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg"
+dest_files=["res://.godot/imported/DavidKBD - InterstellarPack - 02 - Plasma Storm.ogg-9e98371b47867d49f9de6c15c012a74a.oggvorbisstr"]
 
 [params]
 

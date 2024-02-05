@@ -40,7 +40,6 @@ func _ready():
 	if Globals.current_day == 0 && Globals.is_splash_screen_open:
 		splash_screen.show()
 		$SplashScreen/VBoxContainer/play.call_deferred("grab_focus")
-		Engine.time_scale = 0
 
 func _input(event):
 	if event.is_action_released("ui_cancel"):
@@ -138,7 +137,6 @@ func flash_time_left():
 func _on_play_pressed():
 	splash_screen.hide()
 	Globals.is_splash_screen_open = false
-	Engine.time_scale = 1
 	
 func _on_settings_pressed():
 	$SettingsMenu.show()

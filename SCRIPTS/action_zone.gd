@@ -1,14 +1,15 @@
-extends Area2D
-
 class_name action_zone
+
+extends Area2D
 
 @export var type:zone_type
 
-@onready var action_sprite:Sprite2D = $Node2D/Action
+@onready var action_sprite: Sprite2D = $Node2D/Action
 
 enum zone_type {
 	sleep,
-	dig}
+	dig
+	}
 
 func do_action():
 	match type:

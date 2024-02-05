@@ -1,4 +1,7 @@
+class_name Room
 extends Node2D
+
+signal on_player_enter
 
 var connected_rooms = {
 	Vector2.RIGHT: null,
@@ -50,8 +53,7 @@ func on_button_pushed():
 			connected_rooms[r].open_opposite_door(r)
 
 func _on_area_2d_body_entered(body):
-	if(body.name == "Player"):
-		get_node("/root/World/Camera2D").move(self.global_position)
+	on_player_enter.emit(self.global_position)
 
 func open_if_enabled(target_door):
 	if(target_door.current_door_state != door.door_state.DISABLED): 
