@@ -1,0 +1,296 @@
+[gd_scene load_steps=32 format=3 uid="uid://drueu5boieav"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_nctjl"]
+[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://Tileset/meat.png" id="2_rh41i"]
+[ext_resource type="Texture2D" uid="uid://bcgk3ngxgugp4" path="res://Tileset/up_arrow_simple.tres" id="3_b3kp2"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://Sprites/Items/wood.png" id="4_2ltgh"]
+[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://Sprites/Items/item1BIT_shovel.png" id="5_ywbcu"]
+[ext_resource type="Texture2D" uid="uid://n3oqme2ob8j2" path="res://Sprites/Items/happy-face.png" id="6_yvtyv"]
+[ext_resource type="Texture2D" uid="uid://bnpiutvw24i3t" path="res://Sprites/Items/5x-petit.png" id="7_4bw14"]
+[ext_resource type="Texture2D" uid="uid://bbk83rwyobji2" path="res://Sprites/Items/up.png" id="8_bfolm"]
+[ext_resource type="Texture2D" uid="uid://biwhh8mnetiya" path="res://Sprites/Items/item1BIT_skull.png" id="9_acstu"]
+[ext_resource type="Texture2D" uid="uid://duoofrnk02de2" path="res://Sprites/Items/moon.png" id="10_vpc31"]
+[ext_resource type="Texture2D" uid="uid://b0qgxxjs84tr5" path="res://Sprites/OtherCharacters/spritesheets/HEROS1bit_Dog Idle D.png" id="11_1ownl"]
+[ext_resource type="PackedScene" uid="uid://bgwxlu4ih22l3" path="res://Scenes/action_zone.tscn" id="12_7cj13"]
+[ext_resource type="Texture2D" uid="uid://b6q1unhgt07gg" path="res://Sprites/Items/fire_off.png" id="13_vdwib"]
+[ext_resource type="Texture2D" uid="uid://c7x842ux26u4v" path="res://Tileset/fire-anim.png" id="14_7x2gt"]
+[ext_resource type="Texture2D" uid="uid://dfrr2xoj5bfpa" path="res://Tileset/bed.tres" id="15_vmhuo"]
+[ext_resource type="Texture2D" uid="uid://c5eq10777xnh0" path="res://Tileset/up-bed-f1.tres" id="16_3bmvt"]
+[ext_resource type="Texture2D" uid="uid://ca34ysrvfpiux" path="res://Tileset/up-bed-f2.tres" id="17_nai4m"]
+[ext_resource type="Texture2D" uid="uid://bgxcog6dau2nj" path="res://Sprites/Items/hole.png" id="18_p3f3q"]
+[ext_resource type="Script" path="res://Scripts/hole-controller.gd" id="19_3et2l"]
+[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://Nodes/Pickables/pickable_shovel.tscn" id="20_rbr4r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qadqn"]
+size = Vector2(144, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7bs"]
+size = Vector2(40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rhpx"]
+atlas = ExtResource("14_7x2gt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxs0v"]
+atlas = ExtResource("14_7x2gt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvyok"]
+atlas = ExtResource("14_7x2gt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tivlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vdwib")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rhpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxs0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvyok")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm2qc"]
+radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44cdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_3bmvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_nai4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6u4k"]
+size = Vector2(16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8iio"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16v5d"]
+radius = 6.0
+
+[node name="HomeRoom" instance=ExtResource("1_nctjl")]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Background" parent="." index="1"]
+modulate = Color(0.00784314, 0.494118, 0.772549, 1)
+
+[node name="up_door" parent="." index="3"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="right_door" parent="." index="4"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="left_door" parent="." index="5"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="down_door" parent="." index="6"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="OpenDoorButton" parent="." index="7"]
+position = Vector2(120, 120)
+
+[node name="released" parent="OpenDoorButton" index="0"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="Floor-decor" type="Node2D" parent="." index="8"]
+modulate = Color(0.341176, 0.341176, 0.341176, 1)
+
+[node name="meat" type="Sprite2D" parent="Floor-decor" index="0"]
+visible = false
+position = Vector2(40, 56)
+texture = ExtResource("2_rh41i")
+
+[node name="up-arrow" type="Sprite2D" parent="Floor-decor/meat" index="0"]
+visible = false
+position = Vector2(0, -16)
+texture = ExtResource("3_b3kp2")
+
+[node name="wood" type="Sprite2D" parent="Floor-decor" index="1"]
+visible = false
+position = Vector2(56, 56.5)
+texture = ExtResource("4_2ltgh")
+
+[node name="up-arrow" type="Sprite2D" parent="Floor-decor/wood" index="0"]
+visible = false
+position = Vector2(0, -16)
+texture = ExtResource("3_b3kp2")
+
+[node name="shovel" type="Sprite2D" parent="Floor-decor" index="2"]
+visible = false
+position = Vector2(80, 80)
+texture = ExtResource("5_ywbcu")
+
+[node name="Dangers" type="Node2D" parent="Floor-decor" index="3"]
+position = Vector2(0, -80)
+
+[node name="skull" type="Sprite2D" parent="Floor-decor/Dangers" index="0"]
+position = Vector2(136, 112)
+texture = ExtResource("6_yvtyv")
+
+[node name="moon" type="Sprite2D" parent="Floor-decor/Dangers" index="1"]
+position = Vector2(104, 112)
+texture = ExtResource("5_ywbcu")
+
+[node name="moon2" type="Sprite2D" parent="Floor-decor/Dangers" index="2"]
+position = Vector2(104, 96)
+texture = ExtResource("7_4bw14")
+
+[node name="equal2" type="Sprite2D" parent="Floor-decor/Dangers" index="3"]
+position = Vector2(120, 112)
+rotation = 1.5708
+texture = ExtResource("8_bfolm")
+
+[node name="Goal" type="Node2D" parent="Floor-decor" index="4"]
+position = Vector2(-80, 16)
+
+[node name="skull" type="Sprite2D" parent="Floor-decor/Goal" index="0"]
+position = Vector2(136, 112)
+texture = ExtResource("9_acstu")
+
+[node name="moon" type="Sprite2D" parent="Floor-decor/Goal" index="1"]
+position = Vector2(104, 112)
+texture = ExtResource("10_vpc31")
+
+[node name="equal" type="Sprite2D" parent="Floor-decor/Goal" index="2"]
+position = Vector2(120, 112)
+rotation = 1.57079
+texture = ExtResource("8_bfolm")
+
+[node name="Movement" type="Node2D" parent="Floor-decor" index="5"]
+visible = false
+
+[node name="Doggo" type="Sprite2D" parent="Floor-decor/Movement" index="0"]
+position = Vector2(48, 112)
+texture = ExtResource("11_1ownl")
+hframes = 8
+
+[node name="Up2" type="Sprite2D" parent="Floor-decor/Movement" index="1"]
+position = Vector2(48, 96)
+texture = ExtResource("8_bfolm")
+
+[node name="Up3" type="Sprite2D" parent="Floor-decor/Movement" index="2"]
+position = Vector2(32, 112)
+rotation = -1.57079
+texture = ExtResource("8_bfolm")
+
+[node name="Up4" type="Sprite2D" parent="Floor-decor/Movement" index="3"]
+position = Vector2(48, 128)
+rotation = -3.14159
+texture = ExtResource("8_bfolm")
+
+[node name="Up5" type="Sprite2D" parent="Floor-decor/Movement" index="4"]
+position = Vector2(64, 112)
+rotation = 1.5708
+texture = ExtResource("8_bfolm")
+
+[node name="Safe-Space" type="Area2D" parent="." index="9"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe-Space" index="0"]
+position = Vector2(80, 80)
+shape = SubResource("RectangleShape2D_qadqn")
+metadata/_edit_lock_ = true
+
+[node name="Sleep_Zone" parent="." index="10" instance=ExtResource("12_7cj13")]
+position = Vector2(24, 24)
+
+[node name="CollisionShape2D" parent="Sleep_Zone" index="0"]
+position = Vector2(12, 8)
+shape = SubResource("RectangleShape2D_yd7bs")
+debug_color = Color(0.870588, 0, 0.85098, 0.419608)
+
+[node name="Node2D" parent="Sleep_Zone" index="1"]
+position = Vector2(16, -16)
+
+[node name="Action" parent="Sleep_Zone/Node2D" index="0"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="AnimatedFire" type="AnimatedSprite2D" parent="Sleep_Zone" index="2"]
+position = Vector2(24, 0)
+sprite_frames = SubResource("SpriteFrames_tivlv")
+animation = &"off"
+autoplay = "off"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sleep_Zone/AnimatedFire" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sleep_Zone/AnimatedFire/StaticBody2D" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_xm2qc")
+
+[node name="Bed" type="Sprite2D" parent="Sleep_Zone" index="3"]
+position = Vector2(0, 8)
+texture = ExtResource("15_vmhuo")
+
+[node name="Animatedbed" type="AnimatedSprite2D" parent="Sleep_Zone/Bed" index="0"]
+visible = false
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_44cdu")
+autoplay = "default"
+frame_progress = 0.979992
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sleep_Zone/Bed" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sleep_Zone/Bed/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_p6u4k")
+
+[node name="DigZone" parent="." index="11" instance=ExtResource("12_7cj13")]
+position = Vector2(92, 24)
+type = 1
+
+[node name="CollisionShape2D" parent="DigZone" index="0"]
+position = Vector2(-12, 56)
+shape = SubResource("CircleShape2D_u8iio")
+debug_color = Color(0.870588, 0, 0.85098, 0.419608)
+
+[node name="Node2D" parent="DigZone" index="1"]
+position = Vector2(-12, 40)
+
+[node name="Action" parent="DigZone/Node2D" index="0"]
+modulate = Color(0.768627, 0.760784, 0.0862745, 1)
+
+[node name="hole" type="Sprite2D" parent="DigZone" index="2"]
+position = Vector2(-12, 56)
+texture = ExtResource("18_p3f3q")
+hframes = 6
+script = ExtResource("19_3et2l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DigZone/hole" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DigZone/hole/StaticBody2D" index="0"]
+shape = SubResource("CircleShape2D_16v5d")
+
+[node name="pickable_shovel" parent="." index="12" instance=ExtResource("20_rbr4r")]
+position = Vector2(136, 136)
+
+[connection signal="body_entered" from="Safe-Space" to="." method="_on_safe_space_body_entered"]
+[connection signal="body_entered" from="Safe-Space" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Safe-Space" to="." method="_on_safe_space_body_exited"]
+
+[editable path="OpenDoorButton"]
+[editable path="Sleep_Zone"]
+[editable path="DigZone"]

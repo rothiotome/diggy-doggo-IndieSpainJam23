@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqlmg57dpgmop"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_xokpe"]
+[ext_resource type="PackedScene" uid="uid://bjjuwthc5t8g0" path="res://Nodes/Obstacles/obstacle.tscn" id="3_w5ogy"]
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://Nodes/Enemies/tiny-saw.tscn" id="4_8phub"]
+[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://Nodes/Pickables/pickable_shovel.tscn" id="4_baa5v"]
+
+[sub_resource type="Curve2D" id="Curve2D_ejxj3"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 32, 88, 0, 0, 0, 0, 32, 72, 0, 0, 0, 0, 80, 72, 0, 0, 0, 0, 80, 88, 0, 0, 0, 0, 112, 88, 0, 0, 0, 0, 112, 56, 0, 0, 0, 0, 95.9999, 56.0002, 0, 0, 0, 0, 95.9999, 40.0002, 0, 0, 0, 0, 39.9999, 40.0001, 0, 0, 0, 0, 15.9999, 40, 0, 0, 0, 0, 16, 56, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 88)
+}
+point_count = 14
+
+[node name="HomeRoom" instance=ExtResource("1_xokpe")]
+
+[node name="OpenDoorButton" parent="." index="7"]
+position = Vector2(24, 136)
+
+[node name="Obstacle" parent="." index="8" instance=ExtResource("3_w5ogy")]
+position = Vector2(40, 40)
+
+[node name="Obstacle6" parent="." index="9" instance=ExtResource("3_w5ogy")]
+position = Vector2(40, 120)
+
+[node name="Obstacle8" parent="." index="10" instance=ExtResource("3_w5ogy")]
+position = Vector2(120, 40)
+
+[node name="Obstacle9" parent="." index="11" instance=ExtResource("3_w5ogy")]
+position = Vector2(104, 56)
+
+[node name="Obstacle13" parent="." index="12" instance=ExtResource("3_w5ogy")]
+position = Vector2(120, 120)
+
+[node name="Obstacle7" parent="." index="13" instance=ExtResource("3_w5ogy")]
+position = Vector2(56, 104)
+
+[node name="Obstacle14" parent="." index="14" instance=ExtResource("3_w5ogy")]
+position = Vector2(72, 104)
+
+[node name="Obstacle15" parent="." index="15" instance=ExtResource("3_w5ogy")]
+position = Vector2(88, 104)
+
+[node name="Obstacle16" parent="." index="16" instance=ExtResource("3_w5ogy")]
+position = Vector2(104, 104)
+
+[node name="Obstacle17" parent="." index="17" instance=ExtResource("3_w5ogy")]
+position = Vector2(56, 56)
+
+[node name="Obstacle18" parent="." index="18" instance=ExtResource("3_w5ogy")]
+position = Vector2(72, 56)
+
+[node name="Obstacle19" parent="." index="19" instance=ExtResource("3_w5ogy")]
+position = Vector2(88, 56)
+
+[node name="Saw" parent="." index="20" instance=ExtResource("4_8phub")]
+position = Vector2(24, 48)
+movement_speed = 0.3
+
+[node name="Path2D" parent="Saw" index="0"]
+curve = SubResource("Curve2D_ejxj3")
+
+[node name="Saw2" parent="." index="21" instance=ExtResource("4_8phub")]
+position = Vector2(136, 112)
+rotation = 3.14159
+movement_speed = 0.3
+
+[node name="Path2D" parent="Saw2" index="0"]
+curve = SubResource("Curve2D_ejxj3")
+
+[node name="pickable_shovel" parent="." index="22" instance=ExtResource("4_baa5v")]
+position = Vector2(136, 136)
+
+[editable path="Saw"]
+[editable path="Saw2"]

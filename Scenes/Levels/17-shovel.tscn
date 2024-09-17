@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ryf0vd5yp4wm"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_8wpkn"]
+[ext_resource type="PackedScene" uid="uid://cv5r5wwjufsy4" path="res://Nodes/Enemies/saw.tscn" id="2_i35sj"]
+[ext_resource type="PackedScene" uid="uid://b4bum68lvuxam" path="res://Nodes/Pickables/pickable_shovel.tscn" id="3_av4qo"]
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://Nodes/Enemies/tiny-saw.tscn" id="4_hsj6b"]
+
+[sub_resource type="Curve2D" id="Curve2D_0pq2s"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -74, 13, 0, 0, 0, 0, -10, 13, 0, 0, 0, 0, -10, 77, 0, 0, 0, 0, -74, 77, 0, 0, 0, 0, -74, 13)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_c1sbs"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -8, 80, 0, 0, 0, 0, -88, 80, 0, 0, 0, 0, -88, 0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, -8, 80)
+}
+point_count = 5
+
+[node name="HomeRoom" instance=ExtResource("1_8wpkn")]
+
+[node name="Saw" parent="." index="8" instance=ExtResource("2_i35sj")]
+position = Vector2(122, 35)
+
+[node name="Path2D" parent="Saw" index="0"]
+curve = SubResource("Curve2D_0pq2s")
+
+[node name="PathFollow2D" parent="Saw/Path2D" index="0"]
+position = Vector2(-74, 13)
+
+[node name="pickable_shovel" parent="." index="9" instance=ExtResource("3_av4qo")]
+position = Vector2(48, 48)
+
+[node name="Saw2" parent="." index="10" instance=ExtResource("4_hsj6b")]
+position = Vector2(128, 40)
+
+[node name="Path2D" parent="Saw2" index="0"]
+curve = SubResource("Curve2D_c1sbs")
+
+[node name="PathFollow2D" parent="Saw2/Path2D" index="0"]
+position = Vector2(-8, 80)
+
+[editable path="Saw"]
+[editable path="Saw2"]

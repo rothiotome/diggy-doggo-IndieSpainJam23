@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://deorawfpj56s8"]
+
+[ext_resource type="Texture2D" uid="uid://dv0ksxg31suk5" path="res://Tileset/hourglass.tres" id="1_nivl1"]
+[ext_resource type="Texture2D" uid="uid://dww0gho7vkt6d" path="res://Tileset/menos.tres" id="2_okjin"]
+
+[node name="hourglass" type="Sprite2D"]
+modulate = Color(1, 0.4, 0.435294, 1)
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_nivl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.5, 0)
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_okjin")

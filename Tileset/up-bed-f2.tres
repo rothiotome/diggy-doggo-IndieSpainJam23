@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ca34ysrvfpiux"]
+
+[ext_resource type="Texture2D" uid="uid://cn8nt3hawd6sk" path="res://Tileset/PixelPackTOPDOWN1BIT.png" id="1_pxg2p"]
+
+[resource]
+atlas = ExtResource("1_pxg2p")
+region = Rect2(224, 224, 16, 16)

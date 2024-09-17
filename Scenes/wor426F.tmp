@@ -1,0 +1,152 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7mud6d2ljjvj"]
+
+[ext_resource type="Script" path="res://SCRIPTS/game-manager.gd" id="1_4nufx"]
+[ext_resource type="PackedScene" uid="uid://de0pmnn81f0e" path="res://SCENES/player.tscn" id="2_fowwk"]
+[ext_resource type="Script" path="res://SCRIPTS/camera.gd" id="3_4i2mk"]
+[ext_resource type="Script" path="res://SCRIPTS/canvas-controller.gd" id="4_3wit5"]
+[ext_resource type="FontFile" uid="uid://bk8b0qsjfd1xy" path="res://FONTS/VT323-Regular.ttf" id="4_7g5vk"]
+[ext_resource type="Shader" path="res://SHADERS/crt.gdshader" id="4_y3sf8"]
+[ext_resource type="Texture2D" uid="uid://bu6wqmxaqbpea" path="res://SPRITES/ITEMS/sun.png" id="5_87rmp"]
+[ext_resource type="Texture2D" uid="uid://duoofrnk02de2" path="res://SPRITES/ITEMS/moon.png" id="6_fkbis"]
+[ext_resource type="Texture2D" uid="uid://cpg45fx4e66k8" path="res://SPRITES/ITEMS/item1BIT_shovel.png" id="7_rd8xl"]
+[ext_resource type="Texture2D" uid="uid://dtb7xq3hesl66" path="res://TILESET/meat.png" id="8_i5qe8"]
+[ext_resource type="Texture2D" uid="uid://btfm6nyxsa1x6" path="res://TILESET/up_arrow.tres" id="8_opk5w"]
+[ext_resource type="Texture2D" uid="uid://dy6bwpjkn3slj" path="res://SPRITES/ITEMS/wood.png" id="9_3g3jg"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aqw0e"]
+color = Color(0, 0, 0, 0)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0w7u"]
+shader = ExtResource("4_y3sf8")
+shader_parameter/vertJerkOpt = 0.0
+shader_parameter/vertMovementOpt = 0.0
+shader_parameter/bottomStaticOpt = 0.0
+shader_parameter/bottomStaticStrenth = 0.0
+shader_parameter/scalinesOpt = 2.0
+shader_parameter/rgbOffsetOpt = 0.3
+shader_parameter/horzFuzzOpt = 0.2
+
+[node name="World" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_4nufx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -160)
+anchor_mode = 0
+script = ExtResource("3_4i2mk")
+tween_duration = 0.2
+
+[node name="MapNode" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_fowwk")]
+position = Vector2(80, 112)
+velocity_multiplier = 500.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_3wit5")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 160.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ResourcesTitle" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 212.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_7g5vk")
+theme_override_font_sizes/font_size = 50
+text = "Resources"
+
+[node name="Time" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 448.0
+offset_right = 608.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_7g5vk")
+theme_override_font_sizes/font_size = 50
+text = "07:00 am"
+horizontal_alignment = 1
+
+[node name="SunSprite" type="TextureRect" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 65.0
+offset_right = 488.0
+offset_bottom = 105.0
+texture = ExtResource("5_87rmp")
+
+[node name="MoonSprite" type="TextureRect" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 65.0
+offset_right = 616.0
+offset_bottom = 105.0
+texture = ExtResource("6_fkbis")
+
+[node name="ProgressBar" type="HSlider" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 111.0
+offset_right = 529.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+theme_override_icons/grabber = ExtResource("8_opk5w")
+theme_override_styles/slider = SubResource("StyleBoxLine_aqw0e")
+scrollable = false
+
+[node name="shovel" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 1, 0.2)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 72.0
+offset_right = 206.0
+offset_bottom = 112.0
+texture = ExtResource("7_rd8xl")
+
+[node name="wood" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 1, 0.2)
+layout_mode = 0
+offset_left = 102.0
+offset_top = 72.0
+offset_right = 142.0
+offset_bottom = 112.0
+texture = ExtResource("9_3g3jg")
+
+[node name="food" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 1, 0.2)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 72.0
+offset_right = 78.0
+offset_bottom = 112.0
+texture = ExtResource("8_i5qe8")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 113.0
+offset_right = 593.0
+offset_bottom = 116.0
+
+[node name="Control" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_y0w7u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="DaylightTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DaylightTimer" to="." method="_on_daylight_timer_timeout"]

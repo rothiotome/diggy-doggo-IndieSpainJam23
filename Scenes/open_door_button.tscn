@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm3lmc63r3lrf"]
+
+[ext_resource type="Script" path="res://Scripts/OpenDoorButton.gd" id="1_l624j"]
+[ext_resource type="Texture2D" uid="uid://dp1yq0jjyxhqi" path="res://Tileset/button-pushed.tres" id="2_o0l48"]
+[ext_resource type="Texture2D" uid="uid://b6m8kktl13s7m" path="res://Tileset/button-released.tres" id="3_8m7yi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lfbg"]
+size = Vector2(16, 16)
+
+[node name="OpenDoorButton" type="Area2D"]
+position = Vector2(80, 80)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_l624j")
+
+[node name="released" type="Sprite2D" parent="."]
+modulate = Color(0.00784314, 0.494118, 0.772549, 1)
+texture = ExtResource("2_o0l48")
+
+[node name="pushed" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+texture = ExtResource("3_8m7yi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8lfbg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

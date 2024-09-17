@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo8u14deovye7"]
+
+[ext_resource type="PackedScene" uid="uid://bkix8aaefcba1" path="res://Scenes/base_room.tscn" id="1_83732"]
+[ext_resource type="PackedScene" uid="uid://c77jag8ytsik0" path="res://Nodes/Pickables/pickable_wood.tscn" id="3_1dfnj"]
+[ext_resource type="PackedScene" uid="uid://qo18w5b8ecoc" path="res://Nodes/Enemies/tiny-saw.tscn" id="3_ext33"]
+
+[sub_resource type="Curve2D" id="Curve2D_wltaq"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 112, -24, 0, 0, 0, 0, 0, 88)
+}
+point_count = 3
+
+[node name="HomeRoom" instance=ExtResource("1_83732")]
+
+[node name="OpenDoorButton" parent="." index="7"]
+position = Vector2(80, 56)
+
+[node name="pickable_wood" parent="." index="8" instance=ExtResource("3_1dfnj")]
+position = Vector2(80, 103)
+
+[node name="Saw" parent="." index="9" instance=ExtResource("3_ext33")]
+position = Vector2(24, 48)
+movement_speed = 0.6
+
+[node name="Path2D" parent="Saw" index="0"]
+curve = SubResource("Curve2D_wltaq")
+
+[node name="Saw2" parent="." index="10" instance=ExtResource("3_ext33")]
+position = Vector2(48, 136)
+rotation = -1.57079
+movement_speed = 0.6
+
+[node name="Path2D" parent="Saw2" index="0"]
+curve = SubResource("Curve2D_wltaq")
+
+[editable path="Saw"]
+[editable path="Saw2"]
