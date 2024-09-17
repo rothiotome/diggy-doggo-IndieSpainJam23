@@ -12,7 +12,8 @@ var dungeon: Dictionary = {}
 
 @onready var fader = $fader
 
-var message_is_open:bool = false
+var game_is_over:bool = false
+var just_slept:bool = false
 
 const room_size:int = 160
 
@@ -23,7 +24,8 @@ func _ready():
 	player.on_hurt.connect(player_hurt)
 	player.on_pick_object.connect(player_picked_object)
 	player.on_action_area_entered.connect(action_area_entered)
-	canvas_layer.connect("on_message_closed", on_message_closed)
+	canvas_layer.on_message_closed.connect(on_message_closed)
+
 
 func load_map():
 	for i in dungeon.keys():
@@ -41,7 +43,7 @@ func start_day():
 	Globals.current_day += 1
 	
 func player_hurt(damage:int):
-	if(daylight_timer.time_left - damage <= 0): game_over()
+	if daylight_timer.time_left - damage <= 0: game_over()
 	else: 
 		daylight_timer.start(daylight_timer.time_left - damage)
 		canvas_layer.flash_time_left()
@@ -66,7 +68,7 @@ func exit_home():
 	
 func sleep(area:action_zone):
 	if !Globals.sleep_message_seen: return
-	if message_is_open: return
+	if Globals.message_is_open: return
 	show_message("SLEEPING_ACTION")
 	Globals.remove_item(Pickable.resource_type.food)
 	Globals.remove_item(Pickable.resource_type.wood)
@@ -74,10 +76,12 @@ func sleep(area:action_zone):
 	canvas_layer.remove_item(Pickable.resource_type.wood)
 	area.do_action()
 	fader.play("fade_out")
+	just_slept = true
+	
 
 func dig(area:action_zone):
 	if !Globals.dig_message_seen: return
-	if message_is_open: return
+	if Globals.message_is_open: return
 	
 	AudioManager.play_shovel()
 	Globals.remove_item(Pickable.resource_type.shovel)
@@ -100,21 +104,18 @@ func action_area_entered(area:action_zone.zone_type):
 		Globals.dig_message_seen = true
 
 func game_over():
+	daylight_timer.stop()
+	game_is_over = true
 	show_message("DIE_MESSAGE")
 	player.kill()
-	Globals.reset()
-	fader.play("fade_out")
 	
 func reload_scene():
 	get_tree().reload_current_scene()
 
 func show_message(message:String):
 	player.pause_movement()
-	canvas_layer.localize_and_show_message(message)
-	message_is_open = true
-
-func fade_out_ended():
-	reload_scene()
+	Globals.message_is_open = true
+	canvas_layer.show_message(message)
 	
 func move_camera_to_pos(pos):
 	player.can_move = false
@@ -123,7 +124,16 @@ func move_camera_to_pos(pos):
 
 func on_message_closed():
 	player.restore_movement()
-	message_is_open = false
+	Globals.message_is_open = false
+	if Globals.hole_size == 5 or game_is_over:
+		Globals.reset()
+		fader.play("fade_out")
+		await fader.animation_finished
+		reload_scene()
+	if just_slept:
+		just_slept = false
+		reload_scene()
+
 
 func _on_daylight_timer_timeout():
 	game_over()

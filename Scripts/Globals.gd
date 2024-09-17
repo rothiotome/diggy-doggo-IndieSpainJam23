@@ -16,6 +16,8 @@ var dig_message_seen:bool = false
 
 var is_splash_screen_open:bool = true
 
+var message_is_open: bool = false
+
 func has_item(type) -> bool:
 	return inventory.has(type)
 
@@ -32,4 +34,3 @@ func reset():
 	inventory.clear()
 	sleep_message_seen = false
 	dig_message_seen = false
-

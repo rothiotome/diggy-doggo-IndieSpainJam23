@@ -15,13 +15,14 @@ func _ready():
 func fade_in():
 	if tween:
 		tween.kill()
-	if not is_node_ready(): return
-	var tween = get_tree().create_tween()
+	
+	if !is_inside_tree(): return
+	tween = get_tree().create_tween()
 	tween.tween_property(filter, "cutoff_hz", 20000, 0.4)
 
 func fade_out():
 	if tween:
 		tween.kill()
-	if not is_node_ready(): return
-	var tween = get_tree().create_tween()
+	if !is_inside_tree(): return
+	tween = get_tree().create_tween()
 	tween.tween_property(filter, "cutoff_hz", 2000, 0.4)

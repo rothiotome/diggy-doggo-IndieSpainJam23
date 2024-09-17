@@ -11,7 +11,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb6j0"]
-radius = 7.07107
+radius = 7.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brc33"]
 radius = 3.0

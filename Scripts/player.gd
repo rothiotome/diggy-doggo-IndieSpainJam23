@@ -27,7 +27,7 @@ func _physics_process(_delta):
 	if is_dead: return
 	if Globals.is_splash_screen_open: return
 	get_input()
-	if not can_move: velocity = Vector2.ZERO
+	if not can_move or Globals.message_is_open: velocity = Vector2.ZERO
 	move_and_slide()
 	animate()
 
@@ -113,7 +113,7 @@ func hide_ui():
 
 func try_to_action():
 	if current_zone == null: return
-	if get_parent().message_is_open:return
+	if Globals.message_is_open:return
 	match current_zone.type:
 		action_zone.zone_type.sleep:
 			if Globals.has_item(Pickable.resource_type.wood) && Globals.has_item(Pickable.resource_type.food):

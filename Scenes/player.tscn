@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://de0pmnn81f0e"]
+[gd_scene load_steps=36 format=3 uid="uid://de0pmnn81f0e"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5jcwf"]
 [ext_resource type="Texture2D" uid="uid://dtms5edf3ke5m" path="res://Sprites/Doggo/doggoSpriteSheet.png" id="2_2gpcj"]
@@ -12,6 +12,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5whl"]
 radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uiqqq"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54ssg"]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_526cy"]
 radius = 6.0
@@ -708,8 +714,8 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_526cy")
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_uiqqq")
 debug_color = Color(0.862745, 0.172549, 0.772549, 0.419608)
 
 [node name="PickableBox" type="Area2D" parent="."]
@@ -717,8 +723,8 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableBox"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_526cy")
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_54ssg")
 debug_color = Color(0.862745, 0.172549, 0.772549, 0.419608)
 
 [node name="InteractionBox" type="Area2D" parent="."]
@@ -757,8 +763,8 @@ texture = ExtResource("3_fwhsp")
 offset = Vector2(8, 8)
 
 [node name="food" type="Sprite2D" parent="UI/sleep_thoughts/bubble-food"]
-position = Vector2(6.66667, 7.5)
-scale = Vector2(0.8, 0.8)
+position = Vector2(5.83333, 7.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_x7g4e")
 
 [node name="bubble-wood" type="Sprite2D" parent="UI/sleep_thoughts"]
@@ -771,8 +777,8 @@ offset = Vector2(8, 8)
 flip_h = true
 
 [node name="food" type="Sprite2D" parent="UI/sleep_thoughts/bubble-wood"]
-position = Vector2(11.6667, 7.5)
-scale = Vector2(0.8, 0.8)
+position = Vector2(10, 6.66667)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_vj8aq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/sleep_thoughts"]
@@ -792,8 +798,8 @@ texture = ExtResource("3_fwhsp")
 offset = Vector2(8, 8)
 
 [node name="shovel" type="Sprite2D" parent="UI/dig_thoughts/bubble-shovel"]
-position = Vector2(6.66667, 7.5)
-scale = Vector2(0.8, 0.8)
+position = Vector2(5.83333, 7.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_5lx7v")
 
 [node name="step-particles" type="CPUParticles2D" parent="."]

@@ -68,20 +68,16 @@ func remove_item(item:Pickable.resource_type):
 			Pickable.resource_type.shovel:
 				shovel_sprite.modulate.a = 0.25
 
-func get_completion_time() -> String:
-	var days = Globals.current_day
+func get_completion_time() -> Array:
+	var days = Globals.current_day -1
 	var progress = 100 -(timer.time_left / Globals.current_daylight_duration) * 100
 
 	var total_minutes = int(lerp(start_day_hour * 60, end_day_hour * 60, progress / 100))
 	current_hour = total_minutes / 60 -6
 	current_minute = total_minutes % 60
 	
-	var victory_message = tr("VICTORY_MESSAGE")
-	
-	return victory_message %[days, current_hour, current_minute, Globals.number_of_hits]
+	return [days, current_hour, current_minute, Globals.number_of_hits]
 
-func localize_and_show_message(message_key:String):
-	message_panel.show_message(tr(message_key))
 
 func show_message(message_key:String):
 	message_panel.show_message(message_key)
